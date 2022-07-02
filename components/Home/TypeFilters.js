@@ -43,7 +43,7 @@ export default function TypeFilters({
 
     return (
         <motion.section
-            className="mx-auto max-w-5xl mt-16 md:mt-20 lg:mt-24"
+            className="mx-auto mt-16 max-w-5xl md:mt-20 lg:mt-24"
             id="projects"
             ref={contentRef}
             animate={animation}
@@ -53,9 +53,9 @@ export default function TypeFilters({
             <div className="flex items-center justify-evenly">
                 <button
                     type="button"
-                    className={`tw-transition text-xs capitalize md:text-sm px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-base ${
+                    className={`tw-transition border px-1.5 py-2 text-xs capitalize md:text-sm lg:text-base ${
                         activeFilter === 'todos' &&
-                        'text-red-400 border-red-400'
+                        'border-red-400 text-red-400'
                     }`}
                     onClick={() => {
                         setActiveFilter('todos');
@@ -64,7 +64,7 @@ export default function TypeFilters({
                     onMouseLeave={onCursor}
                 >
                     <span className="uppercase">todos</span>
-                    <span className="text-xs md:text-sm lg:text-sm ml-2 text-neutral-500">
+                    <span className="ml-2 text-xs text-neutral-500 md:text-sm lg:text-sm">
                         {allProjectsLength}
                     </span>
                 </button>
@@ -73,7 +73,7 @@ export default function TypeFilters({
                     <button
                         key={idx}
                         type="button"
-                        className={`tw-transition text-xs capitalize md:text-sm px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-base ${
+                        className={`tw-transition border px-1.5 py-2 text-xs capitalize md:text-sm lg:text-base ${
                             activeFilter === typeFilter &&
                             'border-red-400 text-red-400'
                         }`}
@@ -85,12 +85,12 @@ export default function TypeFilters({
                     >
                         <span className="uppercase">{typeFilter}</span>
                         {typeFilter === 'comercial' && (
-                            <span className="text-xs md:text-sm lg:text-base ml-2 text-neutral-500">
+                            <span className="ml-2 text-xs text-neutral-500 md:text-sm lg:text-base">
                                 {comercialProjectsLength}
                             </span>
                         )}
                         {typeFilter === 'personal' && (
-                            <span className="text-xs md:text-sm lg:text-base ml-2 text-neutral-500">
+                            <span className="ml-2 text-xs text-neutral-500 md:text-sm lg:text-base">
                                 {personalProjectsLength}
                             </span>
                         )}

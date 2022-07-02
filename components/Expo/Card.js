@@ -30,7 +30,7 @@ export default function Card({ expo, onCursor }) {
         >
             <Link href={`/expos/${expo.slug}`}>
                 <a>
-                    <div className="group block w-full aspect-w-10 aspect-h-7 bg-transparent overflow-hidden">
+                    <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden bg-transparent">
                         <div className="flex flex-col justify-center">
                             <Image
                                 className="relative"
@@ -41,7 +41,7 @@ export default function Card({ expo, onCursor }) {
                             />
 
                             <div
-                                className="relative w-full h-full z-99 flex justify-center items-center font-bold text-6xl lg:text-8xl uppercase text-white dark:text-black hover:opacity-0 tw-transition font-serif"
+                                className="tw-transition relative z-99 flex h-full w-full items-center justify-center font-serif text-6xl font-bold uppercase text-white hover:opacity-0 dark:text-black lg:text-8xl"
                                 style={{
                                     backgroundColor: `${expo.color.hex}`,
                                 }}

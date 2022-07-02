@@ -31,13 +31,13 @@ export default function AboutPage({ about, achievements, clients }) {
                 <motion.article initial="initial" animate="animate" exit="exit">
                     <Hero title="Hola" />
 
-                    <div className="mx-auto max-w-5xl mt-12 md:mt-0">
+                    <div className="mx-auto mt-12 max-w-5xl md:mt-0">
                         <Bio about={about} />
                     </div>
 
                     <AnimateSharedLayout>
                         <motion.ul
-                            className="flex flex-col gap-y-12 lg:gap-y-20 mx-auto max-w-7xl mt-24"
+                            className="mx-auto mt-24 flex max-w-7xl flex-col gap-y-12 lg:gap-y-20"
                             layout
                         >
                             {achievements.map((achievement, idx) => (

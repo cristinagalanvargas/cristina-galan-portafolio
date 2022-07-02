@@ -7,7 +7,7 @@ export default function Filter({
 }) {
     return (
         <button
-            className={`flex flex-row items-baseline tw-link text-base md:text-lg lg:text-xl focus:outline-none ${
+            className={`tw-link flex flex-row items-baseline text-base focus:outline-none md:text-lg lg:text-xl ${
                 isSelected ? 'filter-btn-on' : ''
             }`}
             type="button"
@@ -16,7 +16,7 @@ export default function Filter({
             onMouseLeave={onCursor}
         >
             {label}
-            <span className="ml-0.5 sm:ml-1 text-xs md:text-sm text-black dark:text-white tw-transition">
+            <span className="tw-transition ml-0.5 text-xs text-black dark:text-white sm:ml-1 md:text-sm">
                 ({length})
             </span>
         </button>

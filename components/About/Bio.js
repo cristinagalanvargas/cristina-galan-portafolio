@@ -20,7 +20,7 @@ export default function Bio({ about }) {
 
     return (
         <motion.section
-            className="tw-content-container-mobile lg:tw-content-container-desktop flex flex-col lg:flex-row items-center justify-center space-x-0 space-y-12 lg:space-x-24"
+            className="tw-content-container-mobile lg:tw-content-container-desktop flex flex-col items-center justify-center space-x-0 space-y-12 lg:flex-row lg:space-x-24"
             variants={parentVariants}
         >
             <div className="w-full lg:w-1/3">

@@ -43,7 +43,7 @@
         -ms-overflow-style: none; /* IE and Edge */
         scroll-behavior: smooth;
 
-        @apply overflow-x-hidden overscroll-none leading-none text-base text-black dark:text-white bg-white dark:bg-black transition-colors duration-300 ease-in-out;
+        @apply overflow-x-hidden overscroll-none bg-white text-base leading-none text-black transition-colors duration-300 ease-in-out dark:bg-black dark:text-white;
     }
 
     @keyframes ticker-kf {
@@ -72,43 +72,43 @@
         @apply py-10 md:py-12 lg:py-24;
     }
     .tw-icon {
-        @apply w-6 h-6 sm:w-10 sm:h-10;
+        @apply h-6 w-6 sm:h-10 sm:w-10;
     }
 
     .tw-page-title {
-        @apply text-11xl lg:text-13xl uppercase font-serif font-bold;
+        @apply font-serif text-11xl font-bold uppercase lg:text-13xl;
     }
 
     .tw-paragraph {
-        @apply flex flex-col space-y-5 lg:space-y-10 text-base md:text-lg lg:text-xl;
+        @apply flex flex-col space-y-5 text-base md:text-lg lg:space-y-10 lg:text-xl;
     }
 
     .tw-label {
-        @apply text-sm lg:text-lg font-bold uppercase leading-relaxed;
+        @apply text-sm font-bold uppercase leading-relaxed lg:text-lg;
     }
 
     .tw-key {
-        @apply text-xs md:text-lg lg:text-base mr-1 lg:mr-2 text-neutral-300 dark:text-neutral-700;
+        @apply mr-1 text-xs text-neutral-300 dark:text-neutral-700 md:text-lg lg:mr-2 lg:text-base;
     }
 
     .tw-value {
-        @apply text-xs lg:text-base text-neutral-700 dark:text-neutral-400 font-medium leading-snug tw-transition;
+        @apply tw-transition text-xs font-medium leading-snug text-neutral-700 dark:text-neutral-400 lg:text-base;
     }
 
     .tw-subheading {
-        @apply text-4xl lg:text-6xl font-bold uppercase font-serif;
+        @apply font-serif text-4xl font-bold uppercase lg:text-6xl;
     }
 
     .tw-card-title {
-        @apply font-bold text-2xl md:text-6xl lg:text-5xl uppercase font-serif;
+        @apply font-serif text-2xl font-bold uppercase md:text-6xl lg:text-5xl;
     }
 
     .tw-card-text {
-        @apply text-sm md:text-xl lg:text-lg text-neutral-700 dark:text-neutral-300 tw-transition;
+        @apply tw-transition text-sm text-neutral-700 dark:text-neutral-300 md:text-xl lg:text-lg;
     }
 
     .tw-link {
-        @apply text-neutral-700 dark:text-neutral-300 hover:text-red-400 tw-transition;
+        @apply tw-transition text-neutral-700 hover:text-red-400 dark:text-neutral-300;
     }
 
     .tw-transition {
@@ -116,7 +116,7 @@
     }
 
     .tw-cursor {
-        @apply hidden lg:block absolute top-0 left-0 w-12 h-12 bg-red-400 rounded-full transform -translate-x-2/4 -translate-y-2/4 transition duration-100 ease-in-out pointer-events-none z-999;
+        @apply pointer-events-none absolute top-0 left-0 z-999 hidden h-12 w-12 -translate-x-2/4 -translate-y-2/4 transform rounded-full bg-red-400 transition duration-100 ease-in-out lg:block;
     }
 
     .tw-pointer {
@@ -125,7 +125,7 @@
 
     .tw-hovered {
         @apply bg-transparent !important;
-        @apply w-16 h-16 border-4 border-solid border-red-400;
+        @apply h-16 w-16 border-4 border-solid border-red-400;
     }
 
     .nav-open {
@@ -137,7 +137,7 @@
     }
 
     .about-row {
-        @apply px-1 py-4 lg:px-3 lg:py-6 text-xs lg:text-base break-words;
+        @apply break-words px-1 py-4 text-xs lg:px-3 lg:py-6 lg:text-base;
     }
 
     .filter-btn-off {

@@ -26,7 +26,7 @@ export default function CTA({ children }) {
             animate={animation}
             variants={scrollVariants}
         >
-            <p className="tw-paragraph text-2xl md:text-3xl lg:text-4xl text-center">
+            <p className="tw-paragraph text-center text-2xl md:text-3xl lg:text-4xl">
                 {children}
             </p>
         </motion.div>

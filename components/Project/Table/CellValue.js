@@ -1,6 +1,6 @@
 const CellValue = ({ children }) => {
     return (
-        <p className="col-span-2 text-base md:text-lg lg:text-lg text-neutral-700 font-medium dark:text-neutral-300 tw-transition capitalize">
+        <p className="tw-transition col-span-2 text-base font-medium capitalize text-neutral-700 dark:text-neutral-300 md:text-lg lg:text-lg">
             {children}
         </p>
     );

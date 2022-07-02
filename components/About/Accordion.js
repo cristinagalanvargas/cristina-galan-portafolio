@@ -36,7 +36,7 @@ export default function Accordion({ table, index, onCursor }) {
         >
             <motion.div
                 layout
-                className="flex justify-between items-center"
+                className="flex items-center justify-between"
                 onClick={() => setIsExpanded(isExpanded ? false : index)}
                 onMouseEnter={() => onCursor('tw-hovered')}
                 onMouseLeave={onCursor}
@@ -51,7 +51,7 @@ export default function Accordion({ table, index, onCursor }) {
 
                 <div
                     className={`tw-transition tw-link ${
-                        isExpanded ? 'transform rotate-180' : ''
+                        isExpanded ? 'rotate-180 transform' : ''
                     }`}
                 >
                     {!isExpanded && <PlusIcon />}

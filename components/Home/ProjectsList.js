@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function ProjectsList({ children }) {
     return (
-        <section className="mx-auto max-w-7xl mt-12 md:mt-16 lg:mt-24">
+        <section className="mx-auto mt-12 max-w-7xl md:mt-16 lg:mt-24">
             <motion.ul
                 layout
                 role="list"

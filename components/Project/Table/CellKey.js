@@ -1,6 +1,6 @@
 const CellKey = ({ children }) => {
     return (
-        <p className="col-span-1 text-xs md:text-sm lg:text-sm text-neutral-500 capitalize">
+        <p className="col-span-1 text-xs capitalize text-neutral-500 md:text-sm lg:text-sm">
             {children}
         </p>
     );

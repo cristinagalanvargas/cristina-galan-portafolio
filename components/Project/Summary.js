@@ -19,7 +19,7 @@ export default function Summary({ description }) {
 
     return (
         <motion.div
-            className="w-full md:w-3/5 text-base md:text-lg lg:text-xl"
+            className="w-full text-base md:text-lg lg:w-3/5 lg:text-xl"
             ref={contentRef}
             initial="initial"
             animate={animation}

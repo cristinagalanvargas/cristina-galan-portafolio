@@ -24,7 +24,7 @@ export default function ExposPage({ expos }) {
             <PageContainer
                 metaTitle="Expos"
                 metaDescription="Exposiciones en las que se han presentado las obras de Cristina Galán"
-                className="max-w-7xl mx-auto"
+                className="mx-auto max-w-7xl"
             >
                 <Hero title="Expos" />
 

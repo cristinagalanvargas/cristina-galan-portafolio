@@ -37,7 +37,7 @@ export default function Clients({ clients, onCursor }) {
             >
                 <motion.div
                     layout
-                    className="flex justify-between items-center"
+                    className="flex items-center justify-between"
                     onClick={() => setIsExpanded(isExpanded ? false : true)}
                     onMouseEnter={() => onCursor('tw-hovered')}
                     onMouseLeave={onCursor}
@@ -52,7 +52,7 @@ export default function Clients({ clients, onCursor }) {
 
                     <div
                         className={`tw-transition tw-link ${
-                            isExpanded ? 'transform rotate-180' : ''
+                            isExpanded ? 'rotate-180 transform' : ''
                         }`}
                     >
                         {!isExpanded && <PlusIcon />}
@@ -67,7 +67,7 @@ export default function Clients({ clients, onCursor }) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="grid grid-cols-2 lg:grid-cols-4 gap-x-20 gap-y-10 lg:gap-x-48 py-12"
+                            className="grid grid-cols-2 gap-x-20 gap-y-10 py-12 lg:grid-cols-4 lg:gap-x-48"
                         >
                             {clients.map((client) => (
                                 <Image

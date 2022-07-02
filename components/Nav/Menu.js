@@ -12,22 +12,22 @@ export default function Menu({ toggleMenu, setToggleMenu, onCursor, x, y }) {
             {toggleMenu && (
                 <>
                     <motion.main
-                        className="fixed top-0 left-0 flex flex-col justify-center h-screen w-screen bg-black dark:bg-white z-100 overflow-hidden px-5"
+                        className="fixed top-0 left-0 z-100 flex h-screen w-screen flex-col justify-center overflow-hidden bg-black px-5 dark:bg-white"
                         initial="initial"
                         animate="animate"
                         exit="exit"
                         custom={toggleMenu}
                         variants={menuVariants}
                     >
-                        <header className="fixed top-0 right-0 flex items-center justify-between px-5 py-10 h-20">
+                        <header className="fixed top-0 right-0 flex h-20 items-center justify-between px-5 py-10">
                             <div onClick={() => setToggleMenu(!toggleMenu)}>
-                                <button className="origin-center border-none bg-none focus:outline-none tw-link text-white dark:text-black">
+                                <button className="tw-link origin-center border-none bg-none text-white focus:outline-none dark:text-black">
                                     <AiOutlineClose className="tw-icon" />
                                 </button>
                             </div>
                         </header>
 
-                        <ul className="flex flex-col justify-center gap-y-12 h-2/3">
+                        <ul className="flex h-2/3 flex-col justify-center gap-y-12">
                             {navLinks.map((menuItem) => (
                                 <Links
                                     key={menuItem.id}

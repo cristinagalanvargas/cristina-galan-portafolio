@@ -33,7 +33,7 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
 
     return (
         <motion.header
-            className="absolute top-0 right-0 left-0 z-99 flex justify-between items-center h-20 lg:h-28 max-w-7xl mx-auto px-4 sm:px-6"
+            className="absolute top-0 right-0 left-0 z-99 mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-28"
             variants={parentVariants}
             initial="initial"
             animate="animate"
@@ -53,7 +53,7 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
                 </Link>
 
                 <span
-                    className="inline-block h-3 w-3 lg:h-5 lg:w-5 rounded-full bg-red-400 hover:bg-black dark:hover:bg-white tw-transition"
+                    className="tw-transition inline-block h-3 w-3 rounded-full bg-red-400 hover:bg-black dark:hover:bg-white lg:h-5 lg:w-5"
                     onClick={toggleTheme}
                     onMouseEnter={() => onCursor('tw-pointer')}
                     onMouseLeave={onCursor}
@@ -77,13 +77,13 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
                 onMouseLeave={onCursor}
                 variants={headerVariants}
             >
-                <button className="border-none bg-none outline-none ring-0 focus:outline-none tw-link">
-                    <AiOutlineMenu className="w-6 h-6 md:w-8 md:h-8" />
+                <button className="tw-link border-none bg-none outline-none ring-0 focus:outline-none">
+                    <AiOutlineMenu className="h-6 w-6 md:h-8 md:w-8" />
                 </button>
             </motion.div>
 
             <motion.div className="hidden lg:block" variants={headerVariants}>
-                <ul className="flex lg:space-x-14 2x:space-x-16">
+                <ul className="2x:space-x-16 flex lg:space-x-14">
                     {navLinks &&
                         navLinks.map((link, index) => (
                             <li
@@ -92,7 +92,7 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
                                 onMouseLeave={onCursor}
                             >
                                 <ActiveLink href={`/${link.id}`}>
-                                    <a className="tw-link text-base lg:text-lg uppercase">
+                                    <a className="tw-link text-base uppercase lg:text-lg">
                                         {link.title}
                                     </a>
                                 </ActiveLink>

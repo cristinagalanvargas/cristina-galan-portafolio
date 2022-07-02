@@ -21,7 +21,7 @@ export default function Video({ url }) {
         <>
             {url && (
                 <motion.section
-                    className="w-full max-w-5xl mx-auto tw-section-separator"
+                    className="tw-section-separator mx-auto w-full max-w-5xl"
                     id="player"
                     ref={contentRef}
                     initial="initial"

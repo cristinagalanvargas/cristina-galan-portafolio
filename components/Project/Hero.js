@@ -18,7 +18,7 @@ export default function Hero({ project }) {
                 priority
             />
             <motion.h1
-                className="z-20 font-bold text-7xl md:text-9xl lg:text-11xl text-white leading-0 uppercase whitespace-normal text-center font-serif"
+                className="leading-0 z-20 whitespace-normal text-center font-serif text-7xl font-bold uppercase text-white md:text-9xl lg:text-11xl"
                 variants={childVariants}
             >
                 {project.name}

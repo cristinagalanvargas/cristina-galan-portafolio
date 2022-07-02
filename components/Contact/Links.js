@@ -19,7 +19,7 @@ export default function Links({ contacts, onCursor }) {
 
     return (
         <motion.ul
-            className="flex justify-evenly w-full"
+            className="flex w-full justify-evenly"
             ref={contentRef}
             initial="initial"
             animate={animation}
@@ -32,7 +32,7 @@ export default function Links({ contacts, onCursor }) {
                     onMouseLeave={onCursor}
                 >
                     <a
-                        className="tw-link text-base lg:text-lg uppercase"
+                        className="tw-link text-sm uppercase lg:text-lg"
                         href={contact.link}
                         target="_blank"
                         rel="noreferrer"

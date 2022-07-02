@@ -35,13 +35,13 @@ export default function ProjectCard({ project, onCursor }) {
             <Link href={`/projects/${project.slug}`} passHref>
                 <a>
                     <div className="flex">
-                        <p className="pr-1 lg:pr-2 tw-card-text writing-mode-vertical-rl text-orientation-mixed">
+                        <p className="tw-card-text writing-mode-vertical-rl text-orientation-mixed pr-1 lg:pr-2">
                             {project.year}
                         </p>
 
-                        <div className="flex flex-col w-full h-full">
+                        <div className="flex h-full w-full flex-col">
                             <Image
-                                className="object-cover object-center transform hover:scale-110 tw-transition"
+                                className="tw-transition transform object-cover object-center hover:scale-110"
                                 src={project.coverImage.url}
                                 alt={project.name}
                                 layout="responsive"
@@ -50,7 +50,7 @@ export default function ProjectCard({ project, onCursor }) {
                             />
 
                             <div className="flex flex-col">
-                                <p className="pt-1 lg:pt-2 tw-card-text">
+                                <p className="tw-card-text pt-1 lg:pt-2">
                                     {project.category.name}
                                 </p>
                                 <p className="tw-card-title">{project.name}</p>

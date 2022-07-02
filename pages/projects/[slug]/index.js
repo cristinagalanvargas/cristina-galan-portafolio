@@ -26,7 +26,7 @@ export default function ProjectPage({ project }) {
                 <Hero project={project} />
 
                 <motion.section
-                    className="flex flex-col md:flex-row mt-6 md:mt-10 lg:mt-10 max-w-7xl mx-auto md:gap-x-12 gap-y-12"
+                    className="mx-auto mt-6 flex max-w-7xl flex-col gap-y-12 md:mt-10 md:gap-x-12 lg:mt-24 lg:flex-row"
                     variants={parentVariants}
                 >
                     <Summary description={project.description} />

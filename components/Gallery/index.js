@@ -11,7 +11,7 @@ export default function Gallery({ images, alt }) {
                     >
                         {images.map((image, idx) => (
                             <li key={image.id} className="mb-4">
-                                <div className="group block w-full bg-transparent overflow-hidden">
+                                <div className="group block w-full overflow-hidden bg-transparent">
                                     <div className="flex flex-col justify-center">
                                         <Image
                                             key={idx}
