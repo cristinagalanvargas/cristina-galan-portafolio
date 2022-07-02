@@ -9,7 +9,7 @@ export default function Hero({ onCursor }) {
     return (
         <CenteredSection>
             <motion.div
-                className="flex space-x-2 items-center text-neutral-700 dark:text-neutral-300 text-base md:text-lg lg:text-xl"
+                className="flex spasmce-x-2 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-lg lg:text-xl"
                 variants={childVariants}
             >
                 <h2 variants={childVariants}>

@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { menuVariants } from '@/utils/framer';
 import { navLinks } from '@/data/navigation';
 
-import List from '@/components/Nav/Links';
+import Links from '@/components/Nav/Links';
 
 export default function Menu({ toggleMenu, setToggleMenu, onCursor, x, y }) {
     return (
@@ -27,9 +27,9 @@ export default function Menu({ toggleMenu, setToggleMenu, onCursor, x, y }) {
                             </div>
                         </header>
 
-                        <ul className="flex flex-col justify-center space-y-12 h-2/3">
+                        <ul className="flex flex-col justify-center gap-y-12 h-2/3">
                             {navLinks.map((menuItem) => (
-                                <List
+                                <Links
                                     key={menuItem.id}
                                     title={menuItem.title}
                                     thumbnailPosition={

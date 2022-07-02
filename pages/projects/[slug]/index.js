@@ -26,7 +26,7 @@ export default function ProjectPage({ project }) {
                 <Hero project={project} />
 
                 <motion.section
-                    className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 gap-x-24 mt-6 md:mt-10 lg:mt-10 max-w-7xl mx-auto"
+                    className="flex flex-col md:flex-row mt-6 md:mt-10 lg:mt-10 max-w-7xl mx-auto md:gap-x-12 gap-y-12"
                     variants={parentVariants}
                 >
                     <Summary description={project.description} />

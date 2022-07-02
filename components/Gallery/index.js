@@ -4,7 +4,7 @@ export default function Gallery({ images, alt }) {
     return (
         <>
             {images && (
-                <section className="tw-section-separator">
+                <section className="tw-section-separator" id="gallery">
                     <ul
                         role="list"
                         className="columns-1 md:columns-2 lg:columns-3"

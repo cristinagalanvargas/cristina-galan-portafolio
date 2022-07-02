@@ -28,7 +28,7 @@ export default function ExpoPage({ expo }) {
             >
                 <Hero expo={expo} onCursor={onCursor} />
 
-                <Video video={expo.video} />
+                <Video url={expo.video} />
 
                 <Gallery alt={expo.name} images={expo?.gallery?.images} />
             </PageContainer>

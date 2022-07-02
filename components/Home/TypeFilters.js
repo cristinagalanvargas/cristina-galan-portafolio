@@ -53,7 +53,7 @@ export default function TypeFilters({
             <div className="flex items-center justify-evenly">
                 <button
                     type="button"
-                    className={`tw-transition text-sm capitalize text-brand md:text-base px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-lg ${
+                    className={`tw-transition text-xs capitalize md:text-sm px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-base ${
                         activeFilter === 'todos' &&
                         'text-red-400 border-red-400'
                     }`}
@@ -73,7 +73,7 @@ export default function TypeFilters({
                     <button
                         key={idx}
                         type="button"
-                        className={`tw-transition text-sm capitalize text-brand md:text-base px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-lg ${
+                        className={`tw-transition text-xs capitalize md:text-sm px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-base ${
                             activeFilter === typeFilter &&
                             'border-red-400 text-red-400'
                         }`}

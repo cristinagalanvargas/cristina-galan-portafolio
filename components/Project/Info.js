@@ -24,7 +24,7 @@ export default function Info({ project }) {
 
     return (
         <motion.div
-            className="col-span-1"
+            className="w-full md:w-1/5 md:text-right"
             ref={contentRef}
             initial="initial"
             animate={animation}
