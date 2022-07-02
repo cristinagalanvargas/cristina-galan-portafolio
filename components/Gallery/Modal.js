@@ -29,7 +29,7 @@ export default function Modal({
                         leaveTo="opacity-0"
                     >
                         <Dialog.Overlay
-                            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                            className="fixed inset-0 bg-neutral-500 bg-opacity-75 transition-opacity"
                             onMouseEnter={() => onCursor('tw-hovered')}
                             onMouseLeave={onCursor}
                         />
@@ -55,7 +55,7 @@ export default function Modal({
                             <div className="z-20 block absolute top-0 right-0 pt-2 pr-2">
                                 <button
                                     type="button"
-                                    className="bg-white rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-500 focus:outline-none"
+                                    className="bg-white rounded-md text-neutral-700 dark:text-neutral-300 hover:text-neutral-500 focus:outline-none"
                                     onMouseEnter={() => onCursor('tw-hovered')}
                                     onMouseLeave={onCursor}
                                     onClick={() => setIsModalOpen(false)}

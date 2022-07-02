@@ -9,7 +9,7 @@ export default function Hero({ onCursor }) {
     return (
         <CenteredSection>
             <motion.div
-                className="flex space-x-2 items-center text-gray-700 dark:text-gray-300 text-base md:text-2xl lg:text-2xl"
+                className="flex space-x-2 items-center text-neutral-700 dark:text-neutral-300 text-base md:text-lg lg:text-xl"
                 variants={childVariants}
             >
                 <h2 variants={childVariants}>
@@ -17,7 +17,7 @@ export default function Hero({ onCursor }) {
                 </h2>
             </motion.div>
 
-            <div className="flex flex-col items-center font-heading font-bold text-7xl md:text-9xl lg:text-10xl uppercase">
+            <div className="flex flex-col items-center font-bold text-8xl md:text-9xl lg:text-10xl uppercase font-serif mt-4">
                 <motion.h1 variants={childVariants}>Cristina</motion.h1>
 
                 <motion.h1 variants={childVariants}>Galán</motion.h1>
@@ -25,7 +25,7 @@ export default function Hero({ onCursor }) {
 
             <div className="flex flex-col items-center justify-center">
                 <motion.div
-                    className="text-gray-500 hover:text-red-400 tw-transition"
+                    className="text-neutral-500 hover:text-red-400 tw-transition"
                     variants={childVariants}
                     onMouseEnter={() => onCursor('tw-hovered')}
                     onMouseLeave={onCursor}

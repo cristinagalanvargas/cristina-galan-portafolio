@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { scrollVariants } from '@/utils/framer';
 
-export default function Content({ description }) {
+export default function Summary({ description }) {
     const animation = useAnimation();
     const [contentRef, inView] = useInView({
         triggerOnce: true,
@@ -19,7 +19,7 @@ export default function Content({ description }) {
 
     return (
         <motion.div
-            className="col-span-7 md:col-span-7 text-base md:text-lg lg:text-xl"
+            className="col-span-1 text-base md:text-lg lg:text-xl"
             ref={contentRef}
             initial="initial"
             animate={animation}

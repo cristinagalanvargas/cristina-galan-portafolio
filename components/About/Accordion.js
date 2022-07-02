@@ -42,7 +42,7 @@ export default function Accordion({ table, index, onCursor }) {
                 onMouseLeave={onCursor}
             >
                 <h2
-                    className={`tw-subheading text-xl lg:text-5xl tw-transition ${
+                    className={`tw-subheading tw-transition ${
                         isExpanded ? 'text-red-400' : ''
                     }`}
                 >

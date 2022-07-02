@@ -92,7 +92,7 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
                                 onMouseLeave={onCursor}
                             >
                                 <ActiveLink href={`/${link.id}`}>
-                                    <a className="tw-link text-lg lg:text-xl">
+                                    <a className="tw-link text-base lg:text-lg uppercase">
                                         {link.title}
                                     </a>
                                 </ActiveLink>

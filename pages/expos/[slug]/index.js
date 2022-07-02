@@ -30,11 +30,7 @@ export default function ExpoPage({ expo }) {
 
                 <Video video={expo.video} />
 
-                <Gallery
-                    alt={expo.name}
-                    images={expo?.gallery?.images}
-                    onCursor={onCursor}
-                />
+                <Gallery alt={expo.name} images={expo?.gallery?.images} />
             </PageContainer>
         </>
     );

@@ -24,7 +24,7 @@ export default function Team({ role, team }) {
 
     return (
         <motion.section
-            className="col-span-7 md:col-span-3 md:col-start-5"
+            className="col-span-1 content-center"
             ref={contentRef}
             initial="initial"
             animate={animation}

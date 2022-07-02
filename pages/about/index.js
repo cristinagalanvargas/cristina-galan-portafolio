@@ -25,17 +25,19 @@ export default function AboutPage({ about, achievements, clients }) {
     return (
         <>
             <PageContainer
-                metaTitle="About"
+                metaTitle="Hola"
                 metaDescription="Vida y obra de la realizadora y artista visual Cristina Galán"
             >
                 <motion.article initial="initial" animate="animate" exit="exit">
-                    <Hero title="About" />
+                    <Hero title="Hola" />
 
-                    <Bio about={about} />
+                    <div className="mx-auto max-w-5xl">
+                        <Bio about={about} />
+                    </div>
 
                     <AnimateSharedLayout>
                         <motion.ul
-                            className="flex flex-col space-y-12 lg:space-y-20 tw-section-separator"
+                            className="flex flex-col space-y-12 lg:space-y-20 tw-section-separator mx-auto max-w-7xl"
                             layout
                         >
                             {achievements.map((achievement, idx) => (

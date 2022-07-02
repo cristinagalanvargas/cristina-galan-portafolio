@@ -32,7 +32,7 @@ export default function Links({ contacts, onCursor }) {
                     onMouseLeave={onCursor}
                 >
                     <a
-                        className="text-base md:text-lg lg:text-xl tw-link"
+                        className="tw-link text-base lg:text-lg uppercase"
                         href={contact.link}
                         target="_blank"
                         rel="noreferrer"

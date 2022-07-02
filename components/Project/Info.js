@@ -9,7 +9,7 @@ import CellContainer from '@/components/Project/Table/CellContainer';
 import CellKey from '@/components/Project/Table/CellKey';
 import CellValue from '@/components/Project/Table/CellValue';
 
-export default function Info({ project, agency, client }) {
+export default function Info({ project }) {
     const animation = useAnimation();
     const [contentRef, inView] = useInView({
         triggerOnce: true,
@@ -24,14 +24,14 @@ export default function Info({ project, agency, client }) {
 
     return (
         <motion.div
-            className="col-span-7 md:col-span-3"
+            className="col-span-1"
             ref={contentRef}
             initial="initial"
             animate={animation}
             variants={scrollVariants}
         >
+            <Label>Info</Label>
             <div>
-                <Label>Info</Label>
                 {project.title && (
                     <CellContainer>
                         <CellKey>Proyecto</CellKey>

@@ -9,7 +9,7 @@ export default function Hero({ title }) {
             variants={parentVariants}
         >
             <motion.h1
-                className="tw-page-title text-gray-100 dark:text-gray-900 tw-transition"
+                className="tw-page-title text-neutral-100 dark:text-neutral-900 tw-transition"
                 variants={childVariants}
             >
                 {title}

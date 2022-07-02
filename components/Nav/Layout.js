@@ -52,7 +52,7 @@ export default function Layout({ children }) {
                     toggleMenu={toggleMenu}
                     setToggleMenu={setToggleMenu}
                 />
-                <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <main className="max-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
                     {children}
                 </main>
                 <Footer onCursor={onCursor} />

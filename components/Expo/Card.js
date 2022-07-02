@@ -41,7 +41,7 @@ export default function Card({ expo, onCursor }) {
                             />
 
                             <div
-                                className="relative w-full h-full z-99 flex justify-center items-center font-heading font-bold text-5xl lg:text-7xl uppercase text-white dark:text-black hover:opacity-0 tw-transition"
+                                className="relative w-full h-full z-99 flex justify-center items-center font-bold text-6xl lg:text-8xl uppercase text-white dark:text-black hover:opacity-0 tw-transition font-serif"
                                 style={{
                                     backgroundColor: `${expo.color.hex}`,
                                 }}

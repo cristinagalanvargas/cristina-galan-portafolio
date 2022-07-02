@@ -14,15 +14,15 @@ export default function Table({ rows }) {
                 <tbody>
                     {rows.map((row) => (
                         <tr
-                            className="flex border-b-2 border-gray-100 dark:border-gray-900 tw-transition"
+                            className="flex border-b border-neutral-200 dark:border-neutral-900 tw-transition"
                             key={row.id}
                         >
                             {row.year && (
-                                <td className="w-3/12 about-row">{row.year}</td>
+                                <td className="w-1/12 about-row">{row.year}</td>
                             )}
 
                             {row.description && (
-                                <td className="w-5/12 about-row">
+                                <td className="w-7/12 about-row">
                                     {row.description}
                                 </td>
                             )}

@@ -10,8 +10,8 @@ module.exports = {
 
     theme: {
         fontFamily: {
-            core: ['Akzidenz', fontFamily.sans],
-            heading: ['Akzidenz Condensed', ...fontFamily.sans],
+            sans: ['Formula Normal', fontFamily.sans],
+            serif: ['Formula Condensed', ...fontFamily.sans],
         },
 
         extend: {

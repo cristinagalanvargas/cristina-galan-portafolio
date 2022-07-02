@@ -12,11 +12,11 @@ export default function Hero({ expo, onCursor }) {
                 className="flex flex-col items-center text-center"
                 variants={childVariants}
             >
-                <h2 className="text-lg lg:text-2xl text-gray-500">
+                <h2 className="text-lg lg:text-2xl text-neutral-500">
                     {expo.location} &apos;{expo.year}
                 </h2>
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold uppercase mt-2 md:mt-4 lg:mt-6">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold uppercase mt-2 md:mt-4 lg:mt-6 font-serif">
                     {expo.name}
                 </h1>
 
@@ -26,7 +26,7 @@ export default function Hero({ expo, onCursor }) {
             </motion.div>
 
             <motion.div
-                className="text-gray-700 dark:text-gray-300 hover:text-red-400 mt-6"
+                className="text-neutral-700 dark:text-neutral-300 hover:text-red-400 mt-6"
                 variants={childVariants}
                 onMouseEnter={() => onCursor('tw-hovered')}
                 onMouseLeave={onCursor}

@@ -53,7 +53,7 @@ export default function TypeFilters({
             <div className="flex items-center justify-evenly">
                 <button
                     type="button"
-                    className={`tw-transition text-sm capitalize text-brand md:text-lg px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-xl ${
+                    className={`tw-transition text-sm capitalize text-brand md:text-base px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-lg ${
                         activeFilter === 'todos' &&
                         'text-red-400 border-red-400'
                     }`}
@@ -63,8 +63,8 @@ export default function TypeFilters({
                     onMouseEnter={() => onCursor('tw-hovered')}
                     onMouseLeave={onCursor}
                 >
-                    <span>todos</span>
-                    <span className="text-xs md:text-sm lg:text-base ml-2 text-gray-500">
+                    <span className="uppercase">todos</span>
+                    <span className="text-xs md:text-sm lg:text-sm ml-2 text-neutral-500">
                         {allProjectsLength}
                     </span>
                 </button>
@@ -73,7 +73,7 @@ export default function TypeFilters({
                     <button
                         key={idx}
                         type="button"
-                        className={`tw-transition text-sm md:text-lg px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border capitalize text-brand lg:text-xl ${
+                        className={`tw-transition text-sm capitalize text-brand md:text-base px-1.5 md:px-2 md:py-1 lg:px-3 lg:py-2 py-0.5 border lg:text-lg ${
                             activeFilter === typeFilter &&
                             'border-red-400 text-red-400'
                         }`}
@@ -83,14 +83,14 @@ export default function TypeFilters({
                         onMouseEnter={() => onCursor('tw-hovered')}
                         onMouseLeave={onCursor}
                     >
-                        <span>{typeFilter}</span>
+                        <span className="uppercase">{typeFilter}</span>
                         {typeFilter === 'comercial' && (
-                            <span className="text-xs md:text-sm lg:text-base ml-2 text-gray-500">
+                            <span className="text-xs md:text-sm lg:text-base ml-2 text-neutral-500">
                                 {comercialProjectsLength}
                             </span>
                         )}
                         {typeFilter === 'personal' && (
-                            <span className="text-xs md:text-sm lg:text-base ml-2 text-gray-500">
+                            <span className="text-xs md:text-sm lg:text-base ml-2 text-neutral-500">
                                 {personalProjectsLength}
                             </span>
                         )}

@@ -26,7 +26,7 @@ export default function ContactPage({ contacts }) {
                 metaTitle="Contacto"
                 metaDescription="Información de contacto de la realizadora y fotógrafa Cristina Galán"
             >
-                <Hero title="Reel" />
+                <Hero title="Contacto" />
                 <div className="w-full tw-content-container-mobile lg:tw-content-container-desktop flex flex-col justify-center items-center space-y-8 sm:space-y-12">
                     <CTA>
                         Si tienes alguna propuesta,

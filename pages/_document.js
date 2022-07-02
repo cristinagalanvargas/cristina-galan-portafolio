@@ -7,42 +7,28 @@ export default class MyDocument extends Document {
                 <Head>
                     <link
                         rel="preload"
-                        href="/fonts/akzidenz-grotesk-regular.woff2"
+                        href="/fonts/formula/PPFormula-CondensedMedium.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin="anonymous"
                     />
                     <link
                         rel="preload"
-                        href="/fonts/akzidenz-grotesk-medium.woff2"
+                        href="/fonts/formula/PPFormula-CondensedRegular.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin="anonymous"
                     />
                     <link
                         rel="preload"
-                        href="/fonts/akzidenz-grotesk-italic.woff2"
+                        href="/fonts/formula/PPFormula-Medium.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin="anonymous"
                     />
                     <link
                         rel="preload"
-                        href="/fonts/akzidenz-grotesk-cond.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin="anonymous"
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/akzidenz-grotesk-bold.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin="anonymous"
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/akzidenz-grotesk-bold-cond.woff2"
+                        href="/fonts/formula/PPFormula-Regular.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin="anonymous"
