@@ -33,7 +33,7 @@ export default function Header({ onCursor, toggleMenu, setToggleMenu }) {
 
     return (
         <motion.header
-            className="absolute top-0 right-0 left-0 z-99 mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-28"
+            className="absolute top-0 right-0 left-0 z-99 mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-3 sm:px-12 lg:h-28"
             variants={parentVariants}
             initial="initial"
             animate="animate"
