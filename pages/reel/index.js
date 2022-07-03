@@ -30,5 +30,6 @@ export const getStaticProps = async () => {
         props: {
             reel: data.about.reel,
         },
+        revalidate: 60 * 60,
     };
 };

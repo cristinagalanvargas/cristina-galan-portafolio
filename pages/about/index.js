@@ -66,5 +66,6 @@ export const getStaticProps = async () => {
             achievements: data.achievements,
             clients: data.clientPortfolio.client,
         },
+        revalidate: 60 * 60,
     };
 };

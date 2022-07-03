@@ -53,6 +53,7 @@ export const getStaticProps = async ({ params }) => {
         props: {
             project: data.project,
         },
+        revalidate: 60 * 60,
     };
 };
 
@@ -68,6 +69,6 @@ export const getStaticPaths = async () => {
                 },
             };
         }),
-        fallback: false,
+        fallback: 'blocking',
     };
 };

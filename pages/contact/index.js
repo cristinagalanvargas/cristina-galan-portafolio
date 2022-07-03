@@ -47,5 +47,6 @@ export const getStaticProps = async () => {
         props: {
             contacts: data.contact.info,
         },
+        revalidate: 60 * 60,
     };
 };

@@ -52,8 +52,8 @@ export const getStaticProps = async ({ params }) => {
     return {
         props: {
             expo: data.expo,
-            revalidate: 60 * 60,
         },
+        revalidate: 60 * 60,
     };
 };
 
@@ -69,6 +69,6 @@ export const getStaticPaths = async () => {
                 },
             };
         }),
-        fallback: false,
+        fallback: 'blocking',
     };
 };

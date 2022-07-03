@@ -43,5 +43,6 @@ export const getStaticProps = async () => {
         props: {
             expos: data.expos,
         },
+        revalidate: 60 * 60,
     };
 };
