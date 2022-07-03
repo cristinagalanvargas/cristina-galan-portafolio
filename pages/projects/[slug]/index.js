@@ -17,6 +17,7 @@ import Video from '@/components/Shared/Video';
 import PageContainer from '@/components/Shared/PageContainer';
 
 export default function ProjectPage({ project }) {
+    console.log(project.team);
     return (
         <>
             <PageContainer
