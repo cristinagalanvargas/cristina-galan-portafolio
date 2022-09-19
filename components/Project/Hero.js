@@ -9,7 +9,7 @@ export default function Hero({ project }) {
     return (
         <CenteredSection>
             <Image
-                className="z-10"
+                className="relative z-10"
                 src={project.coverImage.url}
                 alt={project.name}
                 objectFit="cover"
@@ -17,6 +17,7 @@ export default function Hero({ project }) {
                 layout="fill"
                 priority
             />
+            <div className="absolute inset-0 z-20 bg-black opacity-25" />
             <motion.h1
                 className="leading-0 z-20 whitespace-normal text-center font-serif text-7xl font-bold uppercase text-white md:text-9xl lg:text-11xl"
                 variants={childVariants}
