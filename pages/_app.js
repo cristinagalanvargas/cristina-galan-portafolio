@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
             <GlobalProvider>
                 <Layout>
                     <AnimatePresence
-                        exitBeforeEnter
+                        mode="wait"
                         onExitComplete={handleExitComplete}
                     >
                         <Component {...pageProps} canonical={url} key={url} />

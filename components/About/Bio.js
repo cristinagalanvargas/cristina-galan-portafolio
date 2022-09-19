@@ -20,10 +20,10 @@ export default function Bio({ about }) {
 
     return (
         <motion.section
-            className="mx-auto flex max-w-7xl flex-col items-center justify-center space-x-0 space-y-12 lg:flex-row lg:space-x-24"
+            className="mx-auto flex max-w-7xl flex-col items-center justify-center space-x-0 space-y-12 md:flex-row md:space-x-6 lg:space-x-24"
             variants={parentVariants}
         >
-            <div className="w-full lg:w-1/3">
+            <div className="w-full md:w-1/3">
                 <Image
                     src={about.profilePicture.url}
                     alt="Cristina Galán"
@@ -35,8 +35,8 @@ export default function Bio({ about }) {
                 />
             </div>
 
-            <div className="w-full lg:w-2/3">
-                <p className="tw-paragraph">{about.bio}</p>
+            <div className="w-full md:w-2/3">
+                <p className="text-xl md:text-2xl lg:text-3xl">{about.bio}</p>
             </div>
         </motion.section>
     );

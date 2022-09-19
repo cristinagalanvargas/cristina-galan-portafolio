@@ -40,14 +40,16 @@ export default function ProjectCard({ project, onCursor }) {
                         </p>
 
                         <div className="flex h-full w-full flex-col">
-                            <Image
-                                className="tw-transition transform object-cover object-center hover:scale-110"
-                                src={project.coverImage.url}
-                                alt={project.name}
-                                layout="responsive"
-                                width={16}
-                                height={9}
-                            />
+                            <div>
+                                <Image
+                                    className="tw-transition transform object-cover object-center hover:scale-110"
+                                    src={project.coverImage.url}
+                                    alt={project.name}
+                                    layout="responsive"
+                                    width={16}
+                                    height={9}
+                                />
+                            </div>
 
                             <div className="flex flex-col">
                                 <p className="tw-card-text pt-1 lg:pt-2">

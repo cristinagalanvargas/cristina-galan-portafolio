@@ -21,7 +21,7 @@ export default function Video({ url }) {
         <>
             {url && (
                 <motion.section
-                    className="tw-section-separator mx-auto w-full max-w-5xl"
+                    className="tw-section-separator mx-auto w-full max-w-4xl"
                     id="player"
                     ref={contentRef}
                     initial="initial"
@@ -35,7 +35,6 @@ export default function Video({ url }) {
                             height="360"
                             frameBorder="0"
                             allow="autoplay; fullscreen; picture-in-picture"
-                            allowFullScreen
                         />
                     </div>
                 </motion.section>

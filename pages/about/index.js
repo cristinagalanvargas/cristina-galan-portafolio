@@ -1,4 +1,4 @@
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion';
 
 import { graphcmsClient } from '@/lib/_client';
 import { aboutPageQuery } from '@/lib/_queries';
@@ -33,7 +33,7 @@ export default function AboutPage({ about, achievements, clients }) {
 
                     <Bio about={about} />
 
-                    <AnimateSharedLayout>
+                    <LayoutGroup>
                         <motion.ul
                             className="mx-auto mt-24 flex max-w-5xl flex-col gap-y-12 lg:gap-y-20"
                             layout
@@ -49,7 +49,7 @@ export default function AboutPage({ about, achievements, clients }) {
 
                             <Clients clients={clients} onCursor={onCursor} />
                         </motion.ul>
-                    </AnimateSharedLayout>
+                    </LayoutGroup>
                 </motion.article>
             </PageContainer>
         </>
