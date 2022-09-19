@@ -70,16 +70,20 @@ export default function Clients({ clients, onCursor }) {
                             className="grid grid-cols-2 gap-x-20 gap-y-10 py-12 lg:grid-cols-4 lg:gap-x-48"
                         >
                             {clients.map((client) => (
-                                <Image
-                                    key={client.id}
-                                    src={client.logo.url}
-                                    alt={client.name}
-                                    layout="responsive"
-                                    width={1}
-                                    height={1}
-                                    objectFit="contain"
-                                    objectPosition="center"
-                                />
+                                <>
+                                    {client.logo && (
+                                        <Image
+                                            key={client.id}
+                                            src={client.logo.url}
+                                            alt={client.name}
+                                            layout="responsive"
+                                            width={1}
+                                            height={1}
+                                            objectFit="contain"
+                                            objectPosition="center"
+                                        />
+                                    )}
+                                </>
                             ))}
                         </motion.div>
                     )}
