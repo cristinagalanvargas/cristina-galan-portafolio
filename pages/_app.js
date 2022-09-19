@@ -15,7 +15,7 @@ function handleExitComplete() {
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
-    const url = `https://bukitt.com${router.asPath}`;
+    const url = `https://cristinagalan.com${router.asPath}`;
 
     return (
         <>
