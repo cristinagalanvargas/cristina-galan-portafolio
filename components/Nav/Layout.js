@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 import {
     useGlobalStateContext,
@@ -60,7 +59,3 @@ export default function Layout({ children }) {
         </>
     );
 }
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-};

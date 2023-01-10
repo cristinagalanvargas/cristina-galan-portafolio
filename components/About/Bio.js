@@ -20,7 +20,7 @@ export default function Bio({ about }) {
 
     return (
         <motion.section
-            className="mx-auto flex max-w-7xl flex-col items-center justify-center space-x-0 space-y-12 md:flex-row md:space-x-6 lg:space-x-24"
+            className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-12 gap-x-0 md:flex-row md:gap-x-6 lg:gap-x-24"
             variants={parentVariants}
         >
             <div className="w-full md:w-1/3">
@@ -36,7 +36,7 @@ export default function Bio({ about }) {
             </div>
 
             <div className="w-full md:w-2/3">
-                <p className="text-lg md:text-xl lg:text-2xl">{about.bio}</p>
+                <p className="prose prose-base lg:prose-lg">{about.bio}</p>
             </div>
         </motion.section>
     );
