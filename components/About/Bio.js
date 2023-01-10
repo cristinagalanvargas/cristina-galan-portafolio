@@ -36,7 +36,7 @@ export default function Bio({ about }) {
             </div>
 
             <div className="w-full md:w-2/3">
-                <p className="text-xl md:text-2xl lg:text-3xl">{about.bio}</p>
+                <p className="text-lg md:text-xl lg:text-2xl">{about.bio}</p>
             </div>
         </motion.section>
     );
