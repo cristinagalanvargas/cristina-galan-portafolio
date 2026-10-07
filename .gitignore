@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling
+/.claude
+
+# migration artefacts
+/scripts/.asset-map.*.json
+/scripts/.migration-preview.json
+!.env.example
