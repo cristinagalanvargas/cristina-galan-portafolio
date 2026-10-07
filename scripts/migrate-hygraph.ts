@@ -4,11 +4,14 @@
  * uploaded assets are remembered in scripts/.asset-map.<dataset>.json so a
  * rerun neither duplicates documents nor re-uploads images.
  *
- * Env (.env.local): HYGRAPH_URL, HYGRAPH_TOKEN (optional), SANITY_WRITE_TOKEN,
+ * Env (.env.local): HYGRAPH_URL, HYGRAPH_TOKEN (optional),
  * NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET.
  *
- *   pnpm migrate --dry-run
- *   pnpm migrate --dataset development
+ * Writes use the token of the user logged in with `sanity login` (no API
+ * token needed), or SANITY_WRITE_TOKEN when set.
+ *
+ *   pnpm migrate -- --dry-run
+ *   pnpm migrate -- --dataset development
  */
 import {
   createClient,
@@ -19,8 +22,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import pLimit from "p-limit";
+import { getCliClient } from "sanity/cli";
+
+if (fs.existsSync(".env.local")) process.loadEnvFile(".env.local");
 
 const { values: args } = parseArgs({
+  strict: false,
+  args: process.argv.slice(process.argv.indexOf("--") + 1),
   options: {
     "dry-run": { type: "boolean", default: false },
     dataset: { type: "string" },
@@ -33,15 +41,17 @@ const env = (name: string, required = true) => {
   return value ?? "";
 };
 
-const dryRun = args["dry-run"];
-const dataset = args.dataset ?? env("NEXT_PUBLIC_SANITY_DATASET");
-const sanity = createClient({
+const dryRun = args["dry-run"] === true;
+const dataset = typeof args.dataset === "string" ? args.dataset : env("NEXT_PUBLIC_SANITY_DATASET");
+const clientConfig = {
   projectId: env("NEXT_PUBLIC_SANITY_PROJECT_ID"),
   dataset,
   apiVersion: "2026-10-01",
-  token: env("SANITY_WRITE_TOKEN", !dryRun),
   useCdn: false,
-});
+};
+const sanity = process.env.SANITY_WRITE_TOKEN
+  ? createClient({ ...clientConfig, token: process.env.SANITY_WRITE_TOKEN })
+  : getCliClient(clientConfig);
 
 // ---------------------------------------------------------------------------
 // Hygraph

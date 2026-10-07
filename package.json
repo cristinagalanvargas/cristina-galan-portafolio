@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "typegen": "sanity schema extract --path sanity/schema.json && sanity typegen generate",
-    "migrate": "tsx --env-file=.env.local scripts/migrate-hygraph.ts"
+    "migrate": "sanity exec scripts/migrate-hygraph.ts --with-user-token"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
