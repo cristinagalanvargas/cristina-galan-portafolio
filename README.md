@@ -1,14 +1,18 @@
-# Cristina Galán Portfalio
+# Cristina Galán — portafolio
 
-Click [here](https://cristinagalan.com/) for live site.
+https://www.cristinagalan.com
 
-## Description
+Stack: Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Motion · Sanity.
 
-Portfolio website of director and visual artist Cristina Galán.
+## Desarrollo
 
-## Made with
+Requisitos: Node 24 y pnpm 10.
 
--   [Next JS](https://nextjs.org/)
--   [Tailwind CSS](https://tailwindcss.com/)
--   [Framer Motion](https://www.framer.com/api/motion)
--   [GraphCMS](https://graphcms.com/)
+```bash
+pnpm install
+pnpm dev
+```
+
+Scripts: `pnpm lint`, `pnpm typecheck`, `pnpm build`, `pnpm format`.
+
+La versión anterior (Next 12 + Hygraph) está en el tag `v1-legacy`.
