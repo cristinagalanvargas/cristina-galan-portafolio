@@ -366,7 +366,7 @@ async function main() {
   for (let i = 0; i < docs.length; i += 50) {
     const tx = sanity.transaction();
     docs.slice(i, i + 50).forEach((d) => tx.createOrReplace(d));
-    await tx.commit({ visibility: "async" });
+    await tx.commit();
   }
 
   const written = await sanity.fetch<Record<string, number>>(`{
