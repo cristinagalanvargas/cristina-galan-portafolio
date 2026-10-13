@@ -102,7 +102,7 @@ function ProjectView({ project, projects }: { project: Project; projects: Projec
         <Link
           href="/"
           className={`${label} cine-title-in absolute top-20 left-5 text-white/85 outline-none hover:text-white focus-visible:underline md:top-24 md:left-10`}
-          style={{ "--cine-delay": "0.9s" } as React.CSSProperties}
+          style={{ "--cine-delay": "0.45s" } as React.CSSProperties}
         >
           <span aria-hidden>← </span>Proyectos
         </Link>
@@ -110,7 +110,7 @@ function ProjectView({ project, projects }: { project: Project; projects: Projec
         <div className="cine-credit absolute inset-x-0 bottom-0 px-5 pb-8 md:px-10 md:pb-12">
           <p
             className={`${label} cine-title-in flex flex-wrap gap-x-4 gap-y-1 text-white/80 tabular-nums`}
-            style={{ "--cine-delay": "0.6s" } as React.CSSProperties}
+            style={{ "--cine-delay": "0.2s" } as React.CSSProperties}
           >
             <span>N.º {pad(index + 1)}</span>
             {project.category ? <span>{project.category}</span> : null}
@@ -118,13 +118,13 @@ function ProjectView({ project, projects }: { project: Project; projects: Projec
           </p>
           <h1
             className="cine-title-in mt-4 max-w-[14ch] font-heading text-[clamp(3.5rem,13vw,15rem)] leading-[0.78] font-medium text-balance uppercase"
-            style={{ "--cine-delay": "0.75s" } as React.CSSProperties}
+            style={{ "--cine-delay": "0.3s" } as React.CSSProperties}
           >
             {name}
           </h1>
           <div
             className={`${label} cine-title-in mt-8 flex items-end justify-between gap-6 border-t border-white/25 pt-4`}
-            style={{ "--cine-delay": "0.95s" } as React.CSSProperties}
+            style={{ "--cine-delay": "0.5s" } as React.CSSProperties}
           >
             {project.role ? (
               <p>

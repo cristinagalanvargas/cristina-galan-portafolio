@@ -51,14 +51,14 @@ export default async function CinematicHome() {
             <div className="cine-credit absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
               <p
                 className="cine-title-in mb-4 text-[11px] tracking-[0.4em] text-white/80 uppercase md:mb-6"
-                style={{ "--cine-delay": "1.2s" } as React.CSSProperties}
+                style={{ "--cine-delay": "0.35s" } as React.CSSProperties}
               >
                 Un portafolio de
               </p>
               <h1
                 id="cine-title"
                 className="cine-title-in font-heading text-[clamp(3.25rem,13.5vw,16rem)] leading-[0.78] font-medium tracking-[-0.005em] uppercase"
-                style={{ "--cine-delay": "1.4s" } as React.CSSProperties}
+                style={{ "--cine-delay": "0.5s" } as React.CSSProperties}
               >
                 Cristina Galán
               </h1>

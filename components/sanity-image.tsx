@@ -14,6 +14,7 @@ type Props = {
   image: SanityImageValue | undefined;
   sizes: string;
   className?: string;
+  /** Above-the-fold / LCP image: load eagerly with high fetch priority. */
   priority?: boolean;
   /** Fill the parent (which must be positioned and sized). Otherwise uses the intrinsic ratio. */
   fill?: boolean;
@@ -33,7 +34,7 @@ export function SanityImage({ image, sizes, className, priority, fill, alt }: Pr
       src={src}
       alt={alt ?? image.alt ?? ""}
       sizes={sizes}
-      priority={priority}
+      {...(priority ? { loading: "eager" as const, fetchPriority: "high" as const } : {})}
       className={className}
       style={{ objectPosition: hotspotPosition(image) }}
       {...(fill ? { fill: true } : { width, height })}
