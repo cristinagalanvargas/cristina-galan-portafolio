@@ -10,7 +10,13 @@ export const metadata: Metadata = {
     default: "Cristina Galán",
     template: "%s | Cristina Galán",
   },
-  description: "Fotógrafa y realizadora en Madrid.",
+  description:
+    "Cristina Galán, fotógrafa y realizadora en Madrid. Fashion film, publicidad, documental y obra personal.",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "Cristina Galán",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
