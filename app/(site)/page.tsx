@@ -51,6 +51,7 @@ export default async function CinematicHome() {
                     alt=""
                     fill
                     priority={i === 0}
+                    loading="eager"
                     sizes="100vw"
                     className="object-cover"
                   />

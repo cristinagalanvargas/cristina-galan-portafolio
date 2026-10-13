@@ -228,7 +228,25 @@
   animation-duration: 820ms;
 }
 
+/* Hero montage: the active step fills like a progress bar for the length of the shot. */
+.cine-progress {
+  transform-origin: left;
+  animation: cine-progress var(--cine-shot, 5s) linear both;
+}
+[data-paused="true"] .cine-progress {
+  animation-play-state: paused;
+}
+@keyframes cine-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .cine-progress,
   .cine-grain,
   .cine-shutter,
   .cine-drift,

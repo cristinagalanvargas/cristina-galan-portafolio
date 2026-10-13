@@ -16,13 +16,15 @@ type Props = {
   className?: string;
   /** Above-the-fold / LCP image: load eagerly with high fetch priority. */
   priority?: boolean;
+  /** Override lazy loading, e.g. for images that are hidden now but shown soon. */
+  loading?: "eager" | "lazy";
   /** Fill the parent (which must be positioned and sized). Otherwise uses the intrinsic ratio. */
   fill?: boolean;
   alt?: string;
 };
 
 /** next/image backed by the Sanity image CDN: hotspot-aware cropping and LQIP blur placeholder. */
-export function SanityImage({ image, sizes, className, priority, fill, alt }: Props) {
+export function SanityImage({ image, sizes, className, priority, loading, fill, alt }: Props) {
   if (!image?.asset) return null;
   const src = urlFor(image).url();
   const width = image.dimensions?.width ?? 1600;
@@ -34,7 +36,11 @@ export function SanityImage({ image, sizes, className, priority, fill, alt }: Pr
       src={src}
       alt={alt ?? image.alt ?? ""}
       sizes={sizes}
-      {...(priority ? { loading: "eager" as const, fetchPriority: "high" as const } : {})}
+      {...(priority
+        ? { loading: "eager" as const, fetchPriority: "high" as const }
+        : loading
+          ? { loading }
+          : {})}
       className={className}
       style={{ objectPosition: hotspotPosition(image) }}
       {...(fill ? { fill: true } : { width, height })}

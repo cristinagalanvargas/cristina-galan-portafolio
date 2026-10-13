@@ -1,136 +1,521 @@
 <title>Guía del Studio de Cristina</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"
+/>
 <style>
-/* Layout: a single reading column with a sticky "rollo" index on wide screens; tasks read like a shooting script (scene number, steps, fields as a call sheet). */
-:root {
-  --bg: #12100e;          /* sala de proyección */
-  --panel: #1b1916;
-  --fg: #ece6da;          /* hueso */
-  --muted: #a69e90;
-  --rule: #3a352e;
-  --accent: #e2483a;      /* luz roja de seguridad, como en la web */
-  --accent-soft: #e2483a26;
-  --ok: #7fb58a;
-  --display: "Antonio", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f3efe7; --panel: #e9e3d7; --fg: #1d1a16; --muted: #6a6256; --rule: #d3cabb;
-    --accent: #c4301f; --accent-soft: #c4301f1f; --ok: #2f7a43; color-scheme: light;
+  /* Layout: a single reading column with a sticky "rollo" index on wide screens; tasks read like a shooting script (scene number, steps, fields as a call sheet). */
+  :root {
+    --bg: #12100e; /* sala de proyección */
+    --panel: #1b1916;
+    --fg: #ece6da; /* hueso */
+    --muted: #a69e90;
+    --rule: #3a352e;
+    --accent: #e2483a; /* luz roja de seguridad, como en la web */
+    --accent-soft: #e2483a26;
+    --ok: #7fb58a;
+    --display: "Antonio", "Arial Narrow", "Roboto Condensed", sans-serif;
+    --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: dark;
   }
-}
-:root[data-theme="light"] {
-  --bg: #f3efe7; --panel: #e9e3d7; --fg: #1d1a16; --muted: #6a6256; --rule: #d3cabb;
-  --accent: #c4301f; --accent-soft: #c4301f1f; --ok: #2f7a43; color-scheme: light;
-}
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f3efe7;
+      --panel: #e9e3d7;
+      --fg: #1d1a16;
+      --muted: #6a6256;
+      --rule: #d3cabb;
+      --accent: #c4301f;
+      --accent-soft: #c4301f1f;
+      --ok: #2f7a43;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f3efe7;
+    --panel: #e9e3d7;
+    --fg: #1d1a16;
+    --muted: #6a6256;
+    --rule: #d3cabb;
+    --accent: #c4301f;
+    --accent-soft: #c4301f1f;
+    --ok: #2f7a43;
+    color-scheme: light;
+  }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body {
-  background: var(--bg); color: var(--fg);
-  font: 400 1.0625rem/1.65 var(--body);
-  padding-inline: 20px; padding-block: 0 64px;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font: 400 1.0625rem/1.65 var(--body);
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: inherit;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
 
-.wrap { max-width: 1120px; margin-inline: auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; }
-@media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; } nav.toc { display: none; } }
+  .wrap {
+    max-width: 1120px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 56px;
+  }
+  @media (max-width: 860px) {
+    .wrap {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+    nav.toc {
+      display: none;
+    }
+  }
 
-/* ── Cabecera ── */
-header.hero { max-width: 1120px; margin-inline: auto; padding-block: 56px 40px; border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
-.eyebrow { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.rec { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
-h1 { font: 600 clamp(3rem, 9vw, 6.5rem)/0.9 var(--display); text-transform: uppercase; letter-spacing: -0.005em; margin: 18px 0 20px; text-wrap: balance; }
-.lede { font-size: 1.25rem; line-height: 1.5; max-width: 60ch; margin: 0; }
-.lede strong { font-weight: 600; }
-.where { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 28px; font: 400 0.875rem/1.4 var(--mono); color: var(--muted); }
-.where b { color: var(--fg); font-weight: 500; }
+  /* ── Cabecera ── */
+  header.hero {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-block: 56px 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font: 500 0.75rem/1 var(--mono);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .rec {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+  h1 {
+    font: 600 clamp(3rem, 9vw, 6.5rem)/0.9 var(--display);
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 18px 0 20px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: 60ch;
+    margin: 0;
+  }
+  .lede strong {
+    font-weight: 600;
+  }
+  .where {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    font: 400 0.875rem/1.4 var(--mono);
+    color: var(--muted);
+  }
+  .where b {
+    color: var(--fg);
+    font-weight: 500;
+  }
 
-/* ── Índice ── */
-nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font: 400 0.8125rem/1.4 var(--mono); }
-nav.toc p { color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.6875rem; margin: 0 0 12px; }
-nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: toc; }
-nav.toc li a { display: grid; grid-template-columns: 2.2em 1fr; padding: 5px 0; text-decoration: none; color: var(--muted); }
-nav.toc li a:hover { color: var(--fg); }
-nav.toc li a span { color: var(--accent); font-variant-numeric: tabular-nums; }
+  /* ── Índice ── */
+  nav.toc {
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 24px);
+    align-self: start;
+    font: 400 0.8125rem/1.4 var(--mono);
+  }
+  nav.toc p {
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    margin: 0 0 12px;
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+    counter-reset: toc;
+  }
+  nav.toc li a {
+    display: grid;
+    grid-template-columns: 2.2em 1fr;
+    padding: 5px 0;
+    text-decoration: none;
+    color: var(--muted);
+  }
+  nav.toc li a:hover {
+    color: var(--fg);
+  }
+  nav.toc li a span {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
 
-/* ── Contenido ── */
-main { min-width: 0; }
-section { padding-block: 8px 48px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; scroll-margin-top: 24px; }
-section:last-of-type { border-bottom: 0; }
-.scene { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; font-variant-numeric: tabular-nums; }
-h2 { font: 600 clamp(2rem, 5vw, 3rem)/0.95 var(--display); text-transform: uppercase; margin: 0 0 18px; text-wrap: balance; }
-h3 { font: 600 1.375rem/1.15 var(--display); text-transform: uppercase; letter-spacing: 0.01em; margin: 32px 0 10px; }
-p { margin: 0 0 14px; max-width: 66ch; }
-.muted { color: var(--muted); }
+  /* ── Contenido ── */
+  main {
+    min-width: 0;
+  }
+  section {
+    padding-block: 8px 48px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+    scroll-margin-top: 24px;
+  }
+  section:last-of-type {
+    border-bottom: 0;
+  }
+  .scene {
+    font: 500 0.75rem/1 var(--mono);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  h2 {
+    font: 600 clamp(2rem, 5vw, 3rem)/0.95 var(--display);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  h3 {
+    font: 600 1.375rem/1.15 var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 32px 0 10px;
+  }
+  p {
+    margin: 0 0 14px;
+    max-width: 66ch;
+  }
+  .muted {
+    color: var(--muted);
+  }
 
-ol.steps { list-style: none; counter-reset: step; padding: 0; margin: 16px 0 20px; display: grid; gap: 12px; max-width: 70ch; }
-ol.steps > li { counter-increment: step; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 10px; align-items: baseline; }
-ol.steps > li::before { content: counter(step, decimal-leading-zero); font: 500 0.8125rem/1 var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+  ol.steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 16px 0 20px;
+    display: grid;
+    gap: 12px;
+    max-width: 70ch;
+  }
+  ol.steps > li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 10px;
+    align-items: baseline;
+  }
+  ol.steps > li::before {
+    content: counter(step, decimal-leading-zero);
+    font: 500 0.8125rem/1 var(--mono);
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
 
-.ui { font: 500 0.92em/1 var(--body); background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
-.ui.go { background: var(--ok); color: var(--bg); border-color: transparent; }
-code, .field { font-family: var(--mono); font-size: 0.875em; }
-.req { color: var(--accent); }
+  .ui {
+    font: 500 0.92em/1 var(--body);
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .ui.go {
+    background: var(--ok);
+    color: var(--bg);
+    border-color: transparent;
+  }
+  code,
+  .field {
+    font-family: var(--mono);
+    font-size: 0.875em;
+  }
+  .req {
+    color: var(--accent);
+  }
 
-/* Hoja de campos (call sheet) */
-.sheet { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--rule); border-radius: 6px; }
-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.9375rem; }
-caption { text-align: left; padding: 12px 16px; font: 500 0.75rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); }
-th, td { text-align: left; vertical-align: top; padding: 10px 16px; border-bottom: 1px solid var(--rule); }
-tr:last-child td { border-bottom: 0; }
-th { font: 500 0.6875rem/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-td:first-child { font-weight: 600; white-space: nowrap; }
-td.tab { font: 400 0.8125rem/1.4 var(--mono); color: var(--muted); white-space: nowrap; }
+  /* Hoja de campos (call sheet) */
+  .sheet {
+    overflow-x: auto;
+    margin: 18px 0 8px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 560px;
+    font-size: 0.9375rem;
+  }
+  caption {
+    text-align: left;
+    padding: 12px 16px;
+    font: 500 0.75rem/1 var(--mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+  }
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  th {
+    font: 500 0.6875rem/1.2 var(--mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  td.tab {
+    font: 400 0.8125rem/1.4 var(--mono);
+    color: var(--muted);
+    white-space: nowrap;
+  }
 
-.note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; max-width: 70ch; }
-.note p:last-child { margin-bottom: 0; }
-.note strong { font-weight: 600; }
+  .note {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+    max-width: 70ch;
+  }
+  .note p:last-child {
+    margin-bottom: 0;
+  }
+  .note strong {
+    font-weight: 600;
+  }
 
-/* Esquema del Studio */
-.studio { display: grid; grid-template-columns: 0.9fr 1fr 1.6fr; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin: 20px 0 10px; font-size: 0.8125rem; max-width: 100%; }
-.studio > div { padding: 14px; border-right: 1px solid var(--rule); min-width: 0; }
-.studio > div:last-child { border-right: 0; display: flex; flex-direction: column; gap: 8px; }
-.studio .lab { font: 500 0.625rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-.studio ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.studio .sep { height: 1px; background: var(--rule); margin: 4px 0; }
-.studio .row { display: flex; gap: 8px; align-items: center; }
-.studio .thumb { width: 26px; height: 18px; background: var(--rule); border-radius: 2px; flex: none; }
-.studio .grip { color: var(--muted); font-family: var(--mono); }
-.studio .fieldbox { border: 1px solid var(--rule); border-radius: 4px; padding: 6px 8px; color: var(--muted); }
-.studio .tabs { display: flex; gap: 12px; font-weight: 600; flex-wrap: wrap; }
-.studio .tabs span:first-child { border-bottom: 2px solid var(--accent); }
-.studio .bar { margin-top: auto; display: flex; justify-content: flex-end; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid var(--rule); color: var(--muted); }
-@media (max-width: 560px) { .studio { grid-template-columns: 1fr; } .studio > div { border-right: 0; border-bottom: 1px solid var(--rule); } .studio > div:last-child { border-bottom: 0; } }
+  /* Esquema del Studio */
+  .studio {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr 1.6fr;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0 10px;
+    font-size: 0.8125rem;
+    max-width: 100%;
+  }
+  .studio > div {
+    padding: 14px;
+    border-right: 1px solid var(--rule);
+    min-width: 0;
+  }
+  .studio > div:last-child {
+    border-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .studio .lab {
+    font: 500 0.625rem/1 var(--mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .studio ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .studio .sep {
+    height: 1px;
+    background: var(--rule);
+    margin: 4px 0;
+  }
+  .studio .row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .studio .thumb {
+    width: 26px;
+    height: 18px;
+    background: var(--rule);
+    border-radius: 2px;
+    flex: none;
+  }
+  .studio .grip {
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+  .studio .fieldbox {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: var(--muted);
+  }
+  .studio .tabs {
+    display: flex;
+    gap: 12px;
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+  .studio .tabs span:first-child {
+    border-bottom: 2px solid var(--accent);
+  }
+  .studio .bar {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+  }
+  @media (max-width: 560px) {
+    .studio {
+      grid-template-columns: 1fr;
+    }
+    .studio > div {
+      border-right: 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .studio > div:last-child {
+      border-bottom: 0;
+    }
+  }
 
-details { border: 1px solid var(--rule); border-radius: 6px; margin: 10px 0; max-width: 70ch; background: var(--bg); }
-summary { cursor: pointer; padding: 12px 16px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; font-family: var(--mono); color: var(--accent); }
-details[open] summary::after { content: "−"; }
-details > div { padding: 0 16px 14px; }
+  details {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    margin: 10px 0;
+    max-width: 70ch;
+    background: var(--bg);
+  }
+  summary {
+    cursor: pointer;
+    padding: 12px 16px;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "+";
+    font-family: var(--mono);
+    color: var(--accent);
+  }
+  details[open] summary::after {
+    content: "−";
+  }
+  details > div {
+    padding: 0 16px 14px;
+  }
 
-.copy { display: inline-flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.copy button { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--fg); border: 1px solid var(--rule); border-radius: 4px; padding: 6px 9px; cursor: pointer; }
-.copy button:hover { border-color: var(--accent); }
+  .copy {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .copy button {
+    font: 500 0.75rem/1 var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px 9px;
+    cursor: pointer;
+  }
+  .copy button:hover {
+    border-color: var(--accent);
+  }
 
-footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 1px solid var(--rule); font: 400 0.8125rem/1.5 var(--mono); color: var(--muted); }
+  footer {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font: 400 0.8125rem/1.5 var(--mono);
+    color: var(--muted);
+  }
 </style>
 
 <header class="hero">
-  <div class="eyebrow"><span class="rec" aria-hidden="true"></span> Guía para Cristina · Sanity Studio</div>
-  <h1>Tu web,<br>desde el Studio</h1>
-  <p class="lede">Todo lo que se ve en cristinagalan.com sale de aquí: proyectos, exposiciones, la bio, los logros, los clientes y el contacto. <strong>Cambias algo, pulsas Publicar y en unos segundos está en la web.</strong> No hace falta tocar código ni pedir a nadie que lo suba.</p>
+  <div class="eyebrow">
+    <span class="rec" aria-hidden="true"></span> Guía para Cristina · Sanity Studio
+  </div>
+  <h1>Tu web,<br />desde el Studio</h1>
+  <p class="lede">
+    Todo lo que se ve en cristinagalan.com sale de aquí: proyectos, exposiciones, la bio, los
+    logros, los clientes y el contacto.
+    <strong>Cambias algo, pulsas Publicar y en unos segundos está en la web.</strong> No hace falta
+    tocar código ni pedir a nadie que lo suba.
+  </p>
   <div class="where">
-    <span>Dirección&nbsp; <b class="copy"><span id="studio-url">www.cristinagalan.com/studio</span><button type="button" data-copy="https://www.cristinagalan.com/studio" aria-label="Copiar la dirección del Studio">Copiar</button></b></span>
+    <span
+      >Dirección&nbsp;
+      <b class="copy"
+        ><span id="studio-url">www.cristinagalan.com/studio</span
+        ><button
+          type="button"
+          data-copy="https://www.cristinagalan.com/studio"
+          aria-label="Copiar la dirección del Studio"
+        >
+          Copiar
+        </button></b
+      ></span
+    >
     <span>Tu cuenta&nbsp; <b>cgalanvargas@gmail.com</b></span>
   </div>
 </header>
@@ -139,17 +524,39 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
   <nav class="toc" aria-label="Índice de la guía">
     <p>Índice</p>
     <ol>
-      <li><a href="#entrar"><span>01</span>Entrar por primera vez</a></li>
-      <li><a href="#mapa"><span>02</span>Cómo está organizado</a></li>
-      <li><a href="#publicar"><span>03</span>Borrador y publicar</a></li>
-      <li><a href="#proyecto"><span>04</span>Añadir un proyecto</a></li>
-      <li><a href="#editar"><span>05</span>Editar y ordenar</a></li>
-      <li><a href="#portada"><span>06</span>El montaje de la portada</a></li>
-      <li><a href="#expos"><span>07</span>Exposiciones</a></li>
-      <li><a href="#sobre"><span>08</span>Sobre mí, logros y clientes</a></li>
-      <li><a href="#contacto"><span>09</span>Contacto y ajustes</a></li>
-      <li><a href="#imagenes"><span>10</span>Imágenes y vídeo</a></li>
-      <li><a href="#problemas"><span>11</span>Si algo no sale</a></li>
+      <li>
+        <a href="#entrar"><span>01</span>Entrar por primera vez</a>
+      </li>
+      <li>
+        <a href="#mapa"><span>02</span>Cómo está organizado</a>
+      </li>
+      <li>
+        <a href="#publicar"><span>03</span>Borrador y publicar</a>
+      </li>
+      <li>
+        <a href="#proyecto"><span>04</span>Añadir un proyecto</a>
+      </li>
+      <li>
+        <a href="#editar"><span>05</span>Editar y ordenar</a>
+      </li>
+      <li>
+        <a href="#portada"><span>06</span>El montaje de la portada</a>
+      </li>
+      <li>
+        <a href="#expos"><span>07</span>Exposiciones</a>
+      </li>
+      <li>
+        <a href="#sobre"><span>08</span>Sobre mí, logros y clientes</a>
+      </li>
+      <li>
+        <a href="#contacto"><span>09</span>Contacto y ajustes</a>
+      </li>
+      <li>
+        <a href="#imagenes"><span>10</span>Imágenes y vídeo</a>
+      </li>
+      <li>
+        <a href="#problemas"><span>11</span>Si algo no sale</a>
+      </li>
     </ol>
   </nav>
 
@@ -158,42 +565,80 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
       <p class="scene">01 · Antes de empezar</p>
       <h2>Entrar por primera vez</h2>
       <ol class="steps">
-        <li><span>Busca en <strong>cgalanvargas@gmail.com</strong> el correo de Sanity con la invitación al proyecto <strong>Cristina Galán</strong> y acéptala. Si no lo ves, mira en Promociones o Spam.</span></li>
-        <li><span>Abre <strong>www.cristinagalan.com/studio</strong> en el ordenador. En el móvil también funciona, pero para subir imágenes es más cómodo el ordenador.</span></li>
-        <li><span>Elige <span class="ui">Google</span> y entra con la misma cuenta, cgalanvargas@gmail.com. Si entras con otra cuenta, el Studio te dirá que no tienes acceso.</span></li>
-        <li><span>Guarda la página en marcadores. A partir de ahora entrarás directamente.</span></li>
+        <li>
+          <span
+            >Busca en <strong>cgalanvargas@gmail.com</strong> el correo de Sanity con la invitación
+            al proyecto <strong>Cristina Galán</strong> y acéptala. Si no lo ves, mira en
+            Promociones o Spam.</span
+          >
+        </li>
+        <li>
+          <span
+            >Abre <strong>www.cristinagalan.com/studio</strong> en el ordenador. En el móvil también
+            funciona, pero para subir imágenes es más cómodo el ordenador.</span
+          >
+        </li>
+        <li>
+          <span
+            >Elige <span class="ui">Google</span> y entra con la misma cuenta,
+            cgalanvargas@gmail.com. Si entras con otra cuenta, el Studio te dirá que no tienes
+            acceso.</span
+          >
+        </li>
+        <li>
+          <span>Guarda la página en marcadores. A partir de ahora entrarás directamente.</span>
+        </li>
       </ol>
-      <p class="muted">Tienes permiso de <strong>Editora</strong>: puedes crear, cambiar, publicar y borrar contenido. La configuración técnica del proyecto la lleva Luis.</p>
+      <p class="muted">
+        Tienes permiso de <strong>Editora</strong>: puedes crear, cambiar, publicar y borrar
+        contenido. La configuración técnica del proyecto la lleva Luis.
+      </p>
     </section>
 
     <section id="mapa">
       <p class="scene">02 · El plano general</p>
       <h2>Cómo está organizado</h2>
-      <p>El Studio tiene tres columnas. A la izquierda eliges la sección, en el centro el elemento concreto y a la derecha lo editas.</p>
+      <p>
+        El Studio tiene tres columnas. A la izquierda eliges la sección, en el centro el elemento
+        concreto y a la derecha lo editas.
+      </p>
 
-      <div class="studio" role="img" aria-label="Esquema del Studio: a la izquierda el menú de secciones, en el centro la lista de proyectos con asas para arrastrar, a la derecha el formulario del proyecto con pestañas y el botón Publicar abajo a la derecha.">
+      <div
+        class="studio"
+        role="img"
+        aria-label="Esquema del Studio: a la izquierda el menú de secciones, en el centro la lista de proyectos con asas para arrastrar, a la derecha el formulario del proyecto con pestañas y el botón Publicar abajo a la derecha."
+      >
         <div>
           <div class="lab">Contenido</div>
           <ul>
-            <li>Proyectos</li><li>Exposiciones</li>
+            <li>Proyectos</li>
+            <li>Exposiciones</li>
             <li class="sep" aria-hidden="true"></li>
-            <li>Sobre mí</li><li>Logros</li><li>Clientes</li><li>Contacto</li>
+            <li>Sobre mí</li>
+            <li>Logros</li>
+            <li>Clientes</li>
+            <li>Contacto</li>
             <li class="sep" aria-hidden="true"></li>
-            <li>Categorías</li><li>Ajustes de la web</li>
+            <li>Categorías</li>
+            <li>Ajustes de la web</li>
           </ul>
         </div>
         <div>
           <div class="lab">Proyectos</div>
           <ul>
             <li class="row"><span class="grip">⋮⋮</span><span class="thumb"></span>Humor Blanco</li>
-            <li class="row"><span class="grip">⋮⋮</span><span class="thumb"></span>Magic Is All Science</li>
+            <li class="row">
+              <span class="grip">⋮⋮</span><span class="thumb"></span>Magic Is All Science
+            </li>
             <li class="row"><span class="grip">⋮⋮</span><span class="thumb"></span>Santo Mauro</li>
             <li class="row"><span class="grip">⋮⋮</span><span class="thumb"></span>…</li>
           </ul>
         </div>
         <div>
           <div class="lab">Humor Blanco</div>
-          <div class="tabs"><span>Contenido</span><span>Créditos</span><span>Imágenes y vídeo</span></div>
+          <div class="tabs">
+            <span>Contenido</span><span>Créditos</span><span>Imágenes y vídeo</span>
+          </div>
           <div class="fieldbox">Nombre · HUMOR BLANCO</div>
           <div class="fieldbox">Año · 2023</div>
           <div class="fieldbox">Tipo · ● Comercial ○ Personal</div>
@@ -203,17 +648,57 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
 
       <div class="sheet">
         <table>
-          <caption>Qué hay en cada sección y dónde se ve</caption>
-          <thead><tr><th>Sección</th><th>Qué guardas ahí</th><th>Dónde sale en la web</th></tr></thead>
+          <caption>
+            Qué hay en cada sección y dónde se ve
+          </caption>
+          <thead>
+            <tr>
+              <th>Sección</th>
+              <th>Qué guardas ahí</th>
+              <th>Dónde sale en la web</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Proyectos</td><td>Cada trabajo: portada, vídeo, galería, créditos</td><td>Portada (Secuencia e Índice) y /projects/…</td></tr>
-            <tr><td>Exposiciones</td><td>Cada exposición o festival, con su color de sala</td><td>Expos y /expos/…</td></tr>
-            <tr><td>Sobre mí</td><td>Bio, foto de perfil y enlace del reel</td><td>Hola y Reel</td></tr>
-            <tr><td>Logros</td><td>Grupos (Sobre mí, Prensa, Exhibiciones…) con sus entradas</td><td>Hola, en la trayectoria</td></tr>
-            <tr><td>Clientes</td><td>Nombre y logo de cada cliente</td><td>Hola, en “Han confiado”</td></tr>
-            <tr><td>Contacto</td><td>Email y redes</td><td>Contacto y el pie de todas las páginas</td></tr>
-            <tr><td>Categorías</td><td>Digital, Fotografía, Fashion film, Documental…</td><td>Etiqueta de cada proyecto</td></tr>
-            <tr><td>Ajustes de la web</td><td>Qué proyectos salen en el montaje de la portada</td><td>Cabecera de la home</td></tr>
+            <tr>
+              <td>Proyectos</td>
+              <td>Cada trabajo: portada, vídeo, galería, créditos</td>
+              <td>Portada (Secuencia e Índice) y /projects/…</td>
+            </tr>
+            <tr>
+              <td>Exposiciones</td>
+              <td>Cada exposición o festival, con su color de sala</td>
+              <td>Expos y /expos/…</td>
+            </tr>
+            <tr>
+              <td>Sobre mí</td>
+              <td>Bio, foto de perfil y enlace del reel</td>
+              <td>Hola y Reel</td>
+            </tr>
+            <tr>
+              <td>Logros</td>
+              <td>Grupos (Sobre mí, Prensa, Exhibiciones…) con sus entradas</td>
+              <td>Hola, en la trayectoria</td>
+            </tr>
+            <tr>
+              <td>Clientes</td>
+              <td>Nombre y logo de cada cliente</td>
+              <td>Hola, en “Han confiado”</td>
+            </tr>
+            <tr>
+              <td>Contacto</td>
+              <td>Email y redes</td>
+              <td>Contacto y el pie de todas las páginas</td>
+            </tr>
+            <tr>
+              <td>Categorías</td>
+              <td>Digital, Fotografía, Fashion film, Documental…</td>
+              <td>Etiqueta de cada proyecto</td>
+            </tr>
+            <tr>
+              <td>Ajustes de la web</td>
+              <td>Qué proyectos salen en el montaje de la portada</td>
+              <td>Cabecera de la home</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -222,14 +707,39 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
     <section id="publicar">
       <p class="scene">03 · Lo más importante</p>
       <h2>Borrador y publicar</h2>
-      <p>Mientras escribes, el Studio guarda solo. Pero lo que guarda es un <strong>borrador</strong>: nadie lo ve en la web hasta que pulsas <span class="ui go">Publicar</span>, abajo a la derecha del formulario.</p>
+      <p>
+        Mientras escribes, el Studio guarda solo. Pero lo que guarda es un
+        <strong>borrador</strong>: nadie lo ve en la web hasta que pulsas
+        <span class="ui go">Publicar</span>, abajo a la derecha del formulario.
+      </p>
       <ol class="steps">
-        <li><span>Haz todos los cambios que quieras. Arriba verás que el documento tiene cambios sin publicar.</span></li>
-        <li><span>Pulsa <span class="ui go">Publicar</span>. Si el botón está apagado, falta algún campo obligatorio: el Studio lo marca en rojo.</span></li>
-        <li><span>Abre la página en la web y recarga. Los cambios tardan unos segundos. Si la primera vez ves la versión anterior, recarga otra vez: esa primera visita es la que avisa a la web de que hay contenido nuevo.</span></li>
+        <li>
+          <span
+            >Haz todos los cambios que quieras. Arriba verás que el documento tiene cambios sin
+            publicar.</span
+          >
+        </li>
+        <li>
+          <span
+            >Pulsa <span class="ui go">Publicar</span>. Si el botón está apagado, falta algún campo
+            obligatorio: el Studio lo marca en rojo.</span
+          >
+        </li>
+        <li>
+          <span
+            >Abre la página en la web y recarga. Los cambios tardan unos segundos. Si la primera vez
+            ves la versión anterior, recarga otra vez: esa primera visita es la que avisa a la web
+            de que hay contenido nuevo.</span
+          >
+        </li>
       </ol>
       <div class="note">
-        <p><strong>¿Te has equivocado?</strong> En el menú de los tres puntos junto a Publicar tienes <strong>Descartar cambios</strong> (vuelve a lo publicado) y el <strong>historial</strong>, desde donde puedes recuperar cualquier versión anterior. Nada se pierde por probar.</p>
+        <p>
+          <strong>¿Te has equivocado?</strong> En el menú de los tres puntos junto a Publicar tienes
+          <strong>Descartar cambios</strong> (vuelve a lo publicado) y el
+          <strong>historial</strong>, desde donde puedes recuperar cualquier versión anterior. Nada
+          se pierde por probar.
+        </p>
       </div>
     </section>
 
@@ -237,29 +747,120 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
       <p class="scene">04 · La tarea más habitual</p>
       <h2>Añadir un proyecto</h2>
       <ol class="steps">
-        <li><span>Entra en <strong>Proyectos</strong> y pulsa el botón de crear (el lápiz o el <strong>+</strong>) en la cabecera de la lista.</span></li>
-        <li><span>Rellena las tres pestañas con lo que tengas. Abajo tienes qué va en cada campo; los marcados con <span class="req">*</span> son obligatorios.</span></li>
-        <li><span>En <strong>URL</strong> pulsa <span class="ui">Generar</span> para crearla a partir del nombre. Queda algo como <code>/projects/humor-blanco</code>.</span></li>
-        <li><span>Pulsa <span class="ui go">Publicar</span>. El proyecto nuevo aparece al final de la lista: arrástralo a su sitio (ver <a href="#editar">05</a>).</span></li>
+        <li>
+          <span
+            >Entra en <strong>Proyectos</strong> y pulsa el botón de crear (el lápiz o el
+            <strong>+</strong>) en la cabecera de la lista.</span
+          >
+        </li>
+        <li>
+          <span
+            >Rellena las tres pestañas con lo que tengas. Abajo tienes qué va en cada campo; los
+            marcados con <span class="req">*</span> son obligatorios.</span
+          >
+        </li>
+        <li>
+          <span
+            >En <strong>URL</strong> pulsa <span class="ui">Generar</span> para crearla a partir del
+            nombre. Queda algo como <code>/projects/humor-blanco</code>.</span
+          >
+        </li>
+        <li>
+          <span
+            >Pulsa <span class="ui go">Publicar</span>. El proyecto nuevo aparece al final de la
+            lista: arrástralo a su sitio (ver <a href="#editar">05</a>).</span
+          >
+        </li>
       </ol>
 
       <div class="sheet">
         <table>
-          <caption>Hoja de campos · Proyecto</caption>
-          <thead><tr><th>Campo</th><th>Pestaña</th><th>Qué poner</th></tr></thead>
+          <caption>
+            Hoja de campos · Proyecto
+          </caption>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Pestaña</th>
+              <th>Qué poner</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Nombre <span class="req">*</span></td><td class="tab">Contenido</td><td>El título tal como quieres que salga. En la web se ve en mayúsculas.</td></tr>
-            <tr><td>URL <span class="req">*</span></td><td class="tab">Contenido</td><td>Pulsa Generar. No la cambies una vez publicado: los enlaces que hayas compartido dejarían de funcionar.</td></tr>
-            <tr><td>Año <span class="req">*</span></td><td class="tab">Contenido</td><td>Año del proyecto, solo el número: 2024.</td></tr>
-            <tr><td>Tipo <span class="req">*</span></td><td class="tab">Contenido</td><td>Comercial o Personal. Es lo que usa el filtro de la portada.</td></tr>
-            <tr><td>Categoría</td><td class="tab">Contenido</td><td>Elige una existente (Digital, Fotografía…). Si necesitas una nueva, créala en Categorías.</td></tr>
-            <tr><td>Descripción</td><td class="tab">Contenido</td><td>El texto del proyecto. Sus primeras líneas son también lo que enseña Google.</td></tr>
-            <tr><td>Mi papel</td><td class="tab">Créditos</td><td>Lo que hiciste tú: Directora, Fotógrafa, Realizadora y editora…</td></tr>
-            <tr><td>Cliente / Agencia</td><td class="tab">Créditos</td><td>Si los hay. Si no, déjalos vacíos y no salen.</td></tr>
-            <tr><td>Equipo</td><td class="tab">Créditos</td><td>Una fila por persona: en <strong>Rol</strong> el trabajo (Dirección de foto, Guion…) y en <strong>Nombre</strong> la persona. Salen como créditos de película.</td></tr>
-            <tr><td>Portada <span class="req">*</span></td><td class="tab">Imágenes y vídeo</td><td>La imagen principal. Ajusta el punto focal y escribe el texto alternativo (ver <a href="#imagenes">10</a>).</td></tr>
-            <tr><td>Vídeo</td><td class="tab">Imágenes y vídeo</td><td>El enlace de Vimeo o YouTube. Se reproduce dentro de la página.</td></tr>
-            <tr><td>Galería</td><td class="tab">Imágenes y vídeo</td><td>Arrastra varias imágenes a la vez. Se ordenan arrastrándolas dentro de la cuadrícula.</td></tr>
+            <tr>
+              <td>Nombre <span class="req">*</span></td>
+              <td class="tab">Contenido</td>
+              <td>El título tal como quieres que salga. En la web se ve en mayúsculas.</td>
+            </tr>
+            <tr>
+              <td>URL <span class="req">*</span></td>
+              <td class="tab">Contenido</td>
+              <td>
+                Pulsa Generar. No la cambies una vez publicado: los enlaces que hayas compartido
+                dejarían de funcionar.
+              </td>
+            </tr>
+            <tr>
+              <td>Año <span class="req">*</span></td>
+              <td class="tab">Contenido</td>
+              <td>Año del proyecto, solo el número: 2024.</td>
+            </tr>
+            <tr>
+              <td>Tipo <span class="req">*</span></td>
+              <td class="tab">Contenido</td>
+              <td>Comercial o Personal. Es lo que usa el filtro de la portada.</td>
+            </tr>
+            <tr>
+              <td>Categoría</td>
+              <td class="tab">Contenido</td>
+              <td>
+                Elige una existente (Digital, Fotografía…). Si necesitas una nueva, créala en
+                Categorías.
+              </td>
+            </tr>
+            <tr>
+              <td>Descripción</td>
+              <td class="tab">Contenido</td>
+              <td>El texto del proyecto. Sus primeras líneas son también lo que enseña Google.</td>
+            </tr>
+            <tr>
+              <td>Mi papel</td>
+              <td class="tab">Créditos</td>
+              <td>Lo que hiciste tú: Directora, Fotógrafa, Realizadora y editora…</td>
+            </tr>
+            <tr>
+              <td>Cliente / Agencia</td>
+              <td class="tab">Créditos</td>
+              <td>Si los hay. Si no, déjalos vacíos y no salen.</td>
+            </tr>
+            <tr>
+              <td>Equipo</td>
+              <td class="tab">Créditos</td>
+              <td>
+                Una fila por persona: en <strong>Rol</strong> el trabajo (Dirección de foto, Guion…)
+                y en <strong>Nombre</strong> la persona. Salen como créditos de película.
+              </td>
+            </tr>
+            <tr>
+              <td>Portada <span class="req">*</span></td>
+              <td class="tab">Imágenes y vídeo</td>
+              <td>
+                La imagen principal. Ajusta el punto focal y escribe el texto alternativo (ver
+                <a href="#imagenes">10</a>).
+              </td>
+            </tr>
+            <tr>
+              <td>Vídeo</td>
+              <td class="tab">Imágenes y vídeo</td>
+              <td>El enlace de Vimeo o YouTube. Se reproduce dentro de la página.</td>
+            </tr>
+            <tr>
+              <td>Galería</td>
+              <td class="tab">Imágenes y vídeo</td>
+              <td>
+                Arrastra varias imágenes a la vez. Se ordenan arrastrándolas dentro de la
+                cuadrícula.
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -269,23 +870,52 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
       <p class="scene">05 · Mantenimiento</p>
       <h2>Editar y ordenar</h2>
       <h3>Cambiar un proyecto que ya existe</h3>
-      <p>Ábrelo desde la lista, cambia lo que necesites y pulsa <span class="ui go">Publicar</span>. Puedes corregir cualquier campo cuando quieras; por ejemplo, en Humor Blanco hay un crédito con el rol y el nombre al revés que conviene arreglar.</p>
+      <p>
+        Ábrelo desde la lista, cambia lo que necesites y pulsa <span class="ui go">Publicar</span>.
+        Puedes corregir cualquier campo cuando quieras; por ejemplo, en Humor Blanco hay un crédito
+        con el rol y el nombre al revés que conviene arreglar.
+      </p>
       <h3>Cambiar el orden</h3>
-      <p>El orden de la lista de <strong>Proyectos</strong> es el orden de la web, el primero arriba. Para moverlo, arrastra el proyecto desde su asa <span class="ui">⋮⋮</span> a la posición que quieras. El orden se guarda y se publica solo, sin pulsar Publicar. Funciona igual en <strong>Exposiciones</strong> y en <strong>Logros</strong>.</p>
+      <p>
+        El orden de la lista de <strong>Proyectos</strong> es el orden de la web, el primero arriba.
+        Para moverlo, arrastra el proyecto desde su asa <span class="ui">⋮⋮</span> a la posición que
+        quieras. El orden se guarda y se publica solo, sin pulsar Publicar. Funciona igual en
+        <strong>Exposiciones</strong> y en <strong>Logros</strong>.
+      </p>
       <h3>Ocultar o borrar</h3>
-      <p>En el menú de los tres puntos junto a Publicar: <strong>Despublicar</strong> lo quita de la web pero lo conserva en el Studio; <strong>Eliminar</strong> lo borra del todo. Si dudas, despublica.</p>
+      <p>
+        En el menú de los tres puntos junto a Publicar: <strong>Despublicar</strong> lo quita de la
+        web pero lo conserva en el Studio; <strong>Eliminar</strong> lo borra del todo. Si dudas,
+        despublica.
+      </p>
     </section>
 
     <section id="portada">
       <p class="scene">06 · La cabecera de la home</p>
       <h2>El montaje de la portada</h2>
-      <p>La cabecera de la home va cambiando cada cinco segundos entre las portadas de varios proyectos, con su nombre abajo a la izquierda.</p>
+      <p>
+        La cabecera de la home va cambiando cada cinco segundos entre las portadas de varios
+        proyectos, con su nombre abajo a la izquierda.
+      </p>
       <ol class="steps">
-        <li><span>Entra en <strong>Ajustes de la web</strong>.</span></li>
-        <li><span>En <strong>Portada: proyectos del montaje</strong> añade los proyectos que quieras, hasta ocho, y ordénalos arrastrando. El primero es el que se ve nada más entrar.</span></li>
-        <li><span>Pulsa <span class="ui go">Publicar</span>.</span></li>
+        <li>
+          <span>Entra en <strong>Ajustes de la web</strong>.</span>
+        </li>
+        <li>
+          <span
+            >En <strong>Portada: proyectos del montaje</strong> añade los proyectos que quieras,
+            hasta ocho, y ordénalos arrastrando. El primero es el que se ve nada más entrar.</span
+          >
+        </li>
+        <li>
+          <span>Pulsa <span class="ui go">Publicar</span>.</span>
+        </li>
       </ol>
-      <p class="muted">Si lo dejas vacío, salen los cinco primeros proyectos de la lista. Elige portadas horizontales que aguanten un título encima: la cabecera es muy panorámica y recorta arriba y abajo.</p>
+      <p class="muted">
+        Si lo dejas vacío, salen los cinco primeros proyectos de la lista. Elige portadas
+        horizontales que aguanten un título encima: la cabecera es muy panorámica y recorta arriba y
+        abajo.
+      </p>
     </section>
 
     <section id="expos">
@@ -293,43 +923,105 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
       <h2>Exposiciones</h2>
       <p>Se crean igual que un proyecto, con dos diferencias:</p>
       <ul>
-        <li><p><strong>Lugar</strong> es la ciudad o el espacio (Atenas, Dortmund, CEART Madrid…).</p></li>
-        <li><p><strong>Color</strong> es el color de la sala: tiñe la tarjeta al pasar el ratón y la cabecera de la exposición. Elige uno sacado de las propias fotos de la expo.</p></li>
+        <li>
+          <p><strong>Lugar</strong> es la ciudad o el espacio (Atenas, Dortmund, CEART Madrid…).</p>
+        </li>
+        <li>
+          <p>
+            <strong>Color</strong> es el color de la sala: tiñe la tarjeta al pasar el ratón y la
+            cabecera de la exposición. Elige uno sacado de las propias fotos de la expo.
+          </p>
+        </li>
       </ul>
-      <p>La <strong>Descripción</strong> sale como “texto de sala”. Portada, vídeo y galería funcionan igual que en los proyectos.</p>
+      <p>
+        La <strong>Descripción</strong> sale como “texto de sala”. Portada, vídeo y galería
+        funcionan igual que en los proyectos.
+      </p>
     </section>
 
     <section id="sobre">
       <p class="scene">08 · La página Hola</p>
       <h2>Sobre mí, logros y clientes</h2>
       <h3>Sobre mí</h3>
-      <p><strong>Biografía</strong> es un editor de texto: cada Intro crea un párrafo nuevo. Puedes poner negrita, cursiva o enlaces seleccionando el texto. <strong>Foto de perfil</strong> sale en blanco y negro y se colorea al pasar el ratón. <strong>Reel</strong> es el enlace de Vimeo del reel: lo usan el botón “Ver reel” de la portada y la página Reel.</p>
+      <p>
+        <strong>Biografía</strong> es un editor de texto: cada Intro crea un párrafo nuevo. Puedes
+        poner negrita, cursiva o enlaces seleccionando el texto.
+        <strong>Foto de perfil</strong> sale en blanco y negro y se colorea al pasar el ratón.
+        <strong>Reel</strong> es el enlace de Vimeo del reel: lo usan el botón “Ver reel” de la
+        portada y la página Reel.
+      </p>
       <h3>Logros</h3>
-      <p>Cada logro es un grupo (Sobre mí, Prensa &amp; Publicaciones, Exhibiciones &amp; Premios). Dentro, en <strong>Entradas</strong>, añades una fila por premio, exposición o publicación: año, descripción, institución, lugar y, si existe, un enlace. Da igual el orden en que las añadas: en la web se ordenan por año, de la más reciente a la más antigua.</p>
+      <p>
+        Cada logro es un grupo (Sobre mí, Prensa &amp; Publicaciones, Exhibiciones &amp; Premios).
+        Dentro, en <strong>Entradas</strong>, añades una fila por premio, exposición o publicación:
+        año, descripción, institución, lugar y, si existe, un enlace. Da igual el orden en que las
+        añadas: en la web se ordenan por año, de la más reciente a la más antigua.
+      </p>
       <h3>Clientes</h3>
-      <p>Una tarjeta por cliente, con nombre y logo. Sube el logo en <strong>PNG con fondo transparente o SVG, en blanco</strong>, como los que hay ahora. La web lo pasa a gris y en el modo claro lo invierte a negro; un logo negro desaparecería sobre el fondo oscuro.</p>
+      <p>
+        Una tarjeta por cliente, con nombre y logo. Sube el logo en
+        <strong>PNG con fondo transparente o SVG, en blanco</strong>, como los que hay ahora. La web
+        lo pasa a gris y en el modo claro lo invierte a negro; un logo negro desaparecería sobre el
+        fondo oscuro.
+      </p>
     </section>
 
     <section id="contacto">
       <p class="scene">09 · Datos fijos</p>
       <h2>Contacto y ajustes</h2>
-      <p>En <strong>Contacto</strong> cada enlace tiene tipo (Email o Red social), nombre y enlace. Para el email escribe el enlace así:</p>
-      <p class="copy"><code id="mailto">mailto:cgalanvargas@gmail.com</code><button type="button" data-copy="mailto:cgalanvargas@gmail.com" aria-label="Copiar el enlace de email">Copiar</button></p>
-      <p>Las redes van con su dirección completa, empezando por <code>https://</code>. El email sale grande en el pie de todas las páginas, junto a “¿Rodamos?”.</p>
-      <p><strong>Categorías</strong> solo tiene el nombre. Si cambias el nombre de una, cambia en todos los proyectos que la usan.</p>
+      <p>
+        En <strong>Contacto</strong> cada enlace tiene tipo (Email o Red social), nombre y enlace.
+        Para el email escribe el enlace así:
+      </p>
+      <p class="copy">
+        <code id="mailto">mailto:cgalanvargas@gmail.com</code
+        ><button
+          type="button"
+          data-copy="mailto:cgalanvargas@gmail.com"
+          aria-label="Copiar el enlace de email"
+        >
+          Copiar
+        </button>
+      </p>
+      <p>
+        Las redes van con su dirección completa, empezando por <code>https://</code>. El email sale
+        grande en el pie de todas las páginas, junto a “¿Rodamos?”.
+      </p>
+      <p>
+        <strong>Categorías</strong> solo tiene el nombre. Si cambias el nombre de una, cambia en
+        todos los proyectos que la usan.
+      </p>
     </section>
 
     <section id="imagenes">
       <p class="scene">10 · Material</p>
       <h2>Imágenes y vídeo</h2>
       <h3>Qué subir</h3>
-      <p>JPG de buena calidad, de <strong>al menos 2400 px</strong> en el lado largo; las portadas, horizontales. No hace falta comprimirlas: la web genera sola el tamaño adecuado para cada pantalla. Puedes arrastrar los archivos directamente desde el ordenador al campo.</p>
+      <p>
+        JPG de buena calidad, de <strong>al menos 2400 px</strong> en el lado largo; las portadas,
+        horizontales. No hace falta comprimirlas: la web genera sola el tamaño adecuado para cada
+        pantalla. Puedes arrastrar los archivos directamente desde el ordenador al campo.
+      </p>
       <h3>El punto focal</h3>
-      <p>La misma portada se recorta distinto en el móvil, en la tarjeta y en la cabecera. Al subir una imagen, pulsa en ella y ajusta el <strong>punto focal</strong>: arrastra el círculo hasta lo que nunca se debe cortar (una cara, el producto). El Studio te enseña cómo quedan los recortes.</p>
+      <p>
+        La misma portada se recorta distinto en el móvil, en la tarjeta y en la cabecera. Al subir
+        una imagen, pulsa en ella y ajusta el <strong>punto focal</strong>: arrastra el círculo
+        hasta lo que nunca se debe cortar (una cara, el producto). El Studio te enseña cómo quedan
+        los recortes.
+      </p>
       <h3>Texto alternativo</h3>
-      <p>Una frase corta que describe la imagen para quien no la ve (lectores de pantalla) y para Google. En la portada es obligatorio. Por ejemplo: <em>“Retrato de un hombre con ojos blancos sobre fondo azul”</em>, mejor que <em>“Foto 1”</em>.</p>
+      <p>
+        Una frase corta que describe la imagen para quien no la ve (lectores de pantalla) y para
+        Google. En la portada es obligatorio. Por ejemplo:
+        <em>“Retrato de un hombre con ojos blancos sobre fondo azul”</em>, mejor que
+        <em>“Foto 1”</em>.
+      </p>
       <h3>Vídeo</h3>
-      <p>Pega el enlace de Vimeo tal como lo copias del navegador (<code>https://vimeo.com/123456789</code>) o el de YouTube. El vídeo tiene que estar público o “oculto” (unlisted); si es privado no se podrá ver en la web.</p>
+      <p>
+        Pega el enlace de Vimeo tal como lo copias del navegador
+        (<code>https://vimeo.com/123456789</code>) o el de YouTube. El vídeo tiene que estar público
+        o “oculto” (unlisted); si es privado no se podrá ver en la web.
+      </p>
     </section>
 
     <section id="problemas">
@@ -337,46 +1029,83 @@ footer { max-width: 1120px; margin-inline: auto; padding-top: 24px; border-top: 
       <h2>Si algo no sale</h2>
       <details>
         <summary>El botón Publicar está apagado</summary>
-        <div><p>Falta un campo obligatorio o hay uno con un formato incorrecto (por ejemplo, un enlace sin <code>https://</code>). Busca el aviso en rojo en las tres pestañas.</p></div>
+        <div>
+          <p>
+            Falta un campo obligatorio o hay uno con un formato incorrecto (por ejemplo, un enlace
+            sin <code>https://</code>). Busca el aviso en rojo en las tres pestañas.
+          </p>
+        </div>
       </details>
       <details>
         <summary>He publicado y no veo el cambio en la web</summary>
-        <div><p>Recarga la página una o dos veces: la primera visita después de publicar todavía puede enseñar la versión anterior. Si al cabo de un minuto sigue igual, avisa a Luis.</p></div>
+        <div>
+          <p>
+            Recarga la página una o dos veces: la primera visita después de publicar todavía puede
+            enseñar la versión anterior. Si al cabo de un minuto sigue igual, avisa a Luis.
+          </p>
+        </div>
       </details>
       <details>
         <summary>He borrado o cambiado algo sin querer</summary>
-        <div><p>Abre el historial del documento (menú de los tres puntos) y restaura una versión anterior. Si lo eliminaste del todo, Luis puede recuperarlo.</p></div>
+        <div>
+          <p>
+            Abre el historial del documento (menú de los tres puntos) y restaura una versión
+            anterior. Si lo eliminaste del todo, Luis puede recuperarlo.
+          </p>
+        </div>
       </details>
       <details>
         <summary>Un proyecto nuevo no sale en el filtro Comercial o Personal</summary>
-        <div><p>Revisa que el campo <strong>Tipo</strong> esté marcado y vuelve a publicar.</p></div>
+        <div>
+          <p>Revisa que el campo <strong>Tipo</strong> esté marcado y vuelve a publicar.</p>
+        </div>
       </details>
       <details>
         <summary>El Studio dice que no tengo acceso</summary>
-        <div><p>Comprueba que has entrado con cgalanvargas@gmail.com. Si usaste otra cuenta, cierra sesión desde tu avatar (arriba a la derecha) y entra de nuevo con Google y esa cuenta.</p></div>
+        <div>
+          <p>
+            Comprueba que has entrado con cgalanvargas@gmail.com. Si usaste otra cuenta, cierra
+            sesión desde tu avatar (arriba a la derecha) y entra de nuevo con Google y esa cuenta.
+          </p>
+        </div>
       </details>
-      <p class="muted" style="margin-top:20px">Para cualquier otra cosa (un campo nuevo, cambiar algo del diseño), habla con Luis. Desde el Studio solo se cambia el contenido; el diseño de la web no se puede romper.</p>
+      <p class="muted" style="margin-top: 20px">
+        Para cualquier otra cosa (un campo nuevo, cambiar algo del diseño), habla con Luis. Desde el
+        Studio solo se cambia el contenido; el diseño de la web no se puede romper.
+      </p>
     </section>
   </main>
 </div>
 
-<footer>Web: www.cristinagalan.com · Studio: www.cristinagalan.com/studio · Proyecto de Sanity “Cristina Galán”</footer>
+<footer>
+  Web: www.cristinagalan.com · Studio: www.cristinagalan.com/studio · Proyecto de Sanity “Cristina
+  Galán”
+</footer>
 
 <script>
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var text = btn.getAttribute("data-copy");
-      var done = function () { btn.textContent = "Copiado"; setTimeout(function () { btn.textContent = "Copiar"; }, 1600); };
+      var done = function () {
+        btn.textContent = "Copiado";
+        setTimeout(function () {
+          btn.textContent = "Copiar";
+        }, 1600);
+      };
       var fallback = function () {
         var target = btn.previousElementSibling;
         var range = document.createRange();
         range.selectNodeContents(target);
-        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
         btn.textContent = "Seleccionado";
       };
       try {
         navigator.clipboard.writeText(text).then(done, fallback);
-      } catch (e) { fallback(); }
+      } catch (e) {
+        fallback();
+      }
     });
   });
 </script>
