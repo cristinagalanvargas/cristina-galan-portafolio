@@ -13,6 +13,15 @@ export const settingsQuery = defineQuery(`*[_id == "siteSettings"][0]{
   ogImage{${imageFields}}
 }`);
 
+export const heroQuery = defineQuery(`*[_id == "siteSettings"][0].heroProjects[]->{
+  _id,
+  name,
+  "slug": slug.current,
+  year,
+  "category": category->name,
+  coverImage{${imageFields}}
+}`);
+
 export const projectsQuery =
   defineQuery(`*[_type == "project" && defined(slug.current)] | order(orderRank){
   _id,

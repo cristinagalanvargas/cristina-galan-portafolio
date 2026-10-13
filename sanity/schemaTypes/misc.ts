@@ -179,6 +179,15 @@ export const siteSettings = defineType({
   icon: CogIcon,
   fields: [
     defineField({
+      name: "heroProjects",
+      title: "Portada: proyectos del montaje",
+      description:
+        "Proyectos cuyas portadas se van alternando en la cabecera de la home, en este orden. Si lo dejas vacío, salen los cinco primeros proyectos.",
+      type: "array",
+      of: [defineArrayMember({ type: "reference", to: [{ type: "project" }] })],
+      validation: (r) => r.unique().max(8),
+    }),
+    defineField({
       name: "tagline",
       title: "Subtítulo",
       description: "Aparece bajo el nombre en la portada.",

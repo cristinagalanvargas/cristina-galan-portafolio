@@ -1,14 +1,18 @@
 import { Suspense, ViewTransition } from "react";
 import { SanityImage } from "@/components/sanity-image";
-import { getProjects, getReel } from "@/sanity/lib/data";
+import { getHeroProjects, getProjects, getReel } from "@/sanity/lib/data";
 import { pad } from "@/components/site/format";
+import { HeroMontage } from "@/components/site/hero-montage";
 import { ProjectReel, ProjectReelWithParams } from "@/components/site/project-reel";
 import { ReelDialog } from "@/components/site/reel-dialog";
 import { Timecode } from "@/components/site/timecode";
 
 export default async function CinematicHome() {
-  const [projects, reel] = await Promise.all([getProjects(), getReel()]);
-  const lead = projects[0];
+  const [projects, reel, picked] = await Promise.all([getProjects(), getReel(), getHeroProjects()]);
+  // Montage: the projects chosen in Studio (Ajustes de la web), else the first five.
+  const montage = (picked?.length ? picked : projects.slice(0, 5)).filter(
+    (p): p is typeof p & { slug: string } => Boolean(p?.slug && p.coverImage?.asset),
+  );
   const years = projects.map((p) => p.year).filter((y): y is number => typeof y === "number");
   const span = years.length ? `${Math.min(...years)}—${Math.max(...years)}` : null;
 
@@ -29,26 +33,37 @@ export default async function CinematicHome() {
           </div>
 
           <div className="cine-shutter relative overflow-hidden bg-black text-white">
-            {lead?.coverImage ? (
-              <div className="cine-drift absolute inset-0">
-                <SanityImage
-                  image={lead.coverImage}
-                  alt=""
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </div>
-            ) : null}
-            <div className="cine-vignette absolute inset-0 bg-black/25" />
+            <HeroMontage
+              shots={montage.map((p) => ({
+                key: p._id,
+                href: `/projects/${p.slug}`,
+                name: p.name ?? "",
+                number: pad(projects.findIndex((q) => q.slug === p.slug) + 1),
+              }))}
+              overlay={
+                <div className="cine-vignette pointer-events-none absolute inset-0 bg-black/25" />
+              }
+            >
+              {montage.map((p, i) => (
+                <div key={p._id} className="cine-drift absolute inset-0">
+                  <SanityImage
+                    image={p.coverImage}
+                    alt=""
+                    fill
+                    priority={i === 0}
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </HeroMontage>
 
             <div className="absolute top-4 right-4 flex items-center gap-2 text-[11px] tracking-[0.32em] text-white/85 md:top-6 md:right-10">
               <span className="cine-rec size-1.5 rounded-full bg-(--cine-red)" aria-hidden />
               <Timecode />
             </div>
 
-            <div className="cine-credit absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+            <div className="cine-credit pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
               <p
                 className="cine-title-in mb-4 text-[11px] tracking-[0.4em] text-white/80 uppercase md:mb-6"
                 style={{ "--cine-delay": "0.35s" } as React.CSSProperties}

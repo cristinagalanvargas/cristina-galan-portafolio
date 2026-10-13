@@ -15,6 +15,13 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: sanity/schema.json
+export type ProjectReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "project";
+};
+
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -28,6 +35,11 @@ export type SiteSettings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  heroProjects?: Array<
+    {
+      _key: string;
+    } & ProjectReference
+  >;
   tagline?: string;
   description?: string;
   ogImage?: {
@@ -373,6 +385,7 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | ProjectReference
   | SanityImageAssetReference
   | SiteSettings
   | SanityImageCrop
@@ -432,6 +445,31 @@ export type SettingsQueryResult =
       } | null;
     }
   | null;
+
+// Source: sanity/lib/queries.ts
+// Variable: heroQuery
+// Query: *[_id == "siteSettings"][0].heroProjects[]->{  _id,  name,  "slug": slug.current,  year,  "category": category->name,  coverImage{  ...,  "alt": coalesce(alt, ""),  "lqip": asset->metadata.lqip,  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}}}
+export type HeroQueryResult = Array<{
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  year: number | null;
+  category: string | null;
+  coverImage: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string | "";
+    _type: "image";
+    lqip: string | null;
+    dimensions: {
+      width: number | null;
+      height: number | null;
+      aspectRatio: number | null;
+    } | null;
+  } | null;
+}> | null;
 
 // Source: sanity/lib/queries.ts
 // Variable: projectsQuery
@@ -700,6 +738,7 @@ export type SitemapQueryResult = Array<
 declare global {
   interface SanityQueries {
     '*[_id == "siteSettings"][0]{\n  tagline,\n  description,\n  ogImage{\n  ...,\n  "alt": coalesce(alt, ""),\n  "lqip": asset->metadata.lqip,\n  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}\n}\n}': SettingsQueryResult;
+    '*[_id == "siteSettings"][0].heroProjects[]->{\n  _id,\n  name,\n  "slug": slug.current,\n  year,\n  "category": category->name,\n  coverImage{\n  ...,\n  "alt": coalesce(alt, ""),\n  "lqip": asset->metadata.lqip,\n  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}\n}\n}': HeroQueryResult;
     '*[_type == "project" && defined(slug.current)] | order(orderRank){\n  _id,\n  name,\n  "slug": slug.current,\n  year,\n  type,\n  "category": category->name,\n  coverImage{\n  ...,\n  "alt": coalesce(alt, ""),\n  "lqip": asset->metadata.lqip,\n  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}\n}\n}': ProjectsQueryResult;
     '*[_type == "project" && defined(slug.current)].slug.current': ProjectSlugsQueryResult;
     '*[_type == "project" && slug.current == $slug][0]{\n  _id,\n  name,\n  "slug": slug.current,\n  year,\n  type,\n  "category": category->name,\n  description,\n  role,\n  client,\n  agency,\n  team[]{_key, role, name},\n  videoUrl,\n  coverImage{\n  ...,\n  "alt": coalesce(alt, ""),\n  "lqip": asset->metadata.lqip,\n  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}\n},\n  gallery[]{_key, \n  ...,\n  "alt": coalesce(alt, ""),\n  "lqip": asset->metadata.lqip,\n  "dimensions": asset->metadata.dimensions{width, height, aspectRatio}\n}\n}': ProjectQueryResult;

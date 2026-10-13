@@ -10,7 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "prepare": "husky",
-    "typegen": "sanity schema extract --path sanity/schema.json && sanity typegen generate",
+    "typegen": "sanity schema extract --force --path sanity/schema.json && sanity typegen generate",
     "migrate": "sanity exec scripts/migrate-hygraph.ts --with-user-token"
   },
   "dependencies": {
