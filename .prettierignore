@@ -1,2 +1,4 @@
+pnpm-lock.yaml
 .next
-.vercel
+sanity.types.ts
+docs/baseline
