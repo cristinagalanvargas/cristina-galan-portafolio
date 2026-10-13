@@ -7,6 +7,7 @@ import {
   expoQuery,
   exposQuery,
   expoSlugsQuery,
+  heroQuery,
   projectQuery,
   projectSlugsQuery,
   projectsQuery,
@@ -18,6 +19,9 @@ import {
 // One function per page need, each declaring the cache tags the webhook revalidates.
 
 export const getSettings = () => sanityFetch({ query: settingsQuery, tags: ["siteSettings"] });
+
+export const getHeroProjects = () =>
+  sanityFetch({ query: heroQuery, tags: ["siteSettings", "project", "category"] });
 
 export const getProjects = () =>
   sanityFetch({ query: projectsQuery, tags: ["project", "category"] });

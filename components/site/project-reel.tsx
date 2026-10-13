@@ -146,7 +146,7 @@ export function ProjectReel({
               <ToggleGroupItem
                 key={filter.value}
                 value={filter.value}
-                className="h-9 gap-1.5 rounded-full px-3 text-[10px] font-normal tracking-[0.14em] text-muted-foreground uppercase group-data-[spacing=0]/toggle-group:rounded-full group-data-[spacing=0]/toggle-group:px-3 hover:bg-transparent hover:text-foreground focus-visible:ring-(--cine-red)/60 aria-pressed:bg-foreground aria-pressed:text-background sm:gap-2 sm:text-[11px] sm:tracking-[0.24em] sm:group-data-[spacing=0]/toggle-group:px-4"
+                className="h-9 gap-1.5 rounded-full! px-3 text-[10px] font-normal tracking-[0.14em] text-muted-foreground uppercase group-data-[spacing=0]/toggle-group:px-3 hover:bg-transparent hover:text-foreground focus-visible:ring-(--cine-red)/60 aria-pressed:bg-foreground aria-pressed:text-background sm:gap-2 sm:text-[11px] sm:tracking-[0.24em] sm:group-data-[spacing=0]/toggle-group:px-4"
               >
                 <span
                   aria-hidden
