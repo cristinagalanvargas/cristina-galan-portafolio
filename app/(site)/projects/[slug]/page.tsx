@@ -109,7 +109,7 @@ function ProjectView({ project, projects }: { project: Project; projects: Projec
             {project.year ? <span>{project.year}</span> : null}
           </p>
           <h1
-            className="cine-title-in mt-4 max-w-[14ch] font-heading text-[clamp(3.5rem,13vw,15rem)] leading-[0.78] font-medium text-balance uppercase"
+            className="cine-title-in mt-7 max-w-[14ch] font-heading text-[clamp(3.5rem,13vw,15rem)] leading-[0.78] font-medium text-balance uppercase md:mt-12"
             style={{ "--cine-delay": "0.3s" } as React.CSSProperties}
           >
             {name}

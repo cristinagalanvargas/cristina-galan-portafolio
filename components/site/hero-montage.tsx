@@ -120,7 +120,7 @@ export function HeroMontage({
           role="group"
           aria-label="Proyectos de la portada"
           {...controls}
-          className="absolute right-2 bottom-1 z-10 flex md:right-8 md:bottom-3"
+          className="absolute top-1 left-1 z-10 flex md:top-auto md:right-8 md:bottom-3 md:left-auto"
         >
           {shots.map((s, i) => (
             <button

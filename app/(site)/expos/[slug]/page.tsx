@@ -80,7 +80,7 @@ export default async function ExpoPage({ params }: Props) {
               {expo.location ? <span>{expo.location}</span> : null}
               {expo.year ? <span>{expo.year}</span> : null}
             </p>
-            <h1 className="mt-4 max-w-[14ch] font-heading text-[clamp(3.5rem,12vw,14rem)] leading-[0.8] font-medium text-balance uppercase">
+            <h1 className="mt-7 max-w-[14ch] font-heading text-[clamp(3.5rem,12vw,14rem)] leading-[0.8] font-medium text-balance uppercase md:mt-12">
               {name}
             </h1>
           </div>
