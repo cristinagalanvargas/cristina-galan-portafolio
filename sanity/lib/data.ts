@@ -23,6 +23,17 @@ export const getSettings = () => sanityFetch({ query: settingsQuery, tags: ["sit
 export const getHeroProjects = () =>
   sanityFetch({ query: heroQuery, tags: ["siteSettings", "project", "category"] });
 
+/** Image for pages without their own: Ajustes > ogImage, else the first montage / project cover. */
+export async function getDefaultShareImage() {
+  const [settings, hero, projects] = await Promise.all([
+    getSettings(),
+    getHeroProjects(),
+    getProjects(),
+  ]);
+  if (settings?.ogImage?.asset) return settings.ogImage;
+  return hero?.find((p) => p?.coverImage?.asset)?.coverImage ?? projects[0]?.coverImage ?? null;
+}
+
 export const getProjects = () =>
   sanityFetch({ query: projectsQuery, tags: ["project", "category"] });
 

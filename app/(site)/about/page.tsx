@@ -8,16 +8,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { getAbout, getContact } from "@/sanity/lib/data";
+import { getAbout, getContact, getDefaultShareImage } from "@/sanity/lib/data";
+import { pageMetadata, siteUrl } from "@/lib/seo";
 import { urlFor } from "@/sanity/lib/image";
 
-export const metadata: Metadata = {
-  title: "Hola",
-  description:
-    "Cristina Galán (Madrid, 1992), artista visual y realizadora. Biografía, exposiciones, premios, publicaciones y clientes.",
-};
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cristinagalan.com";
+export async function generateMetadata(): Promise<Metadata> {
+  const [{ about }, fallback] = await Promise.all([getAbout(), getDefaultShareImage()]);
+  return pageMetadata({
+    path: "/about",
+    title: "Hola",
+    description:
+      "Cristina Galán (Madrid, 1992), artista visual y realizadora. Biografía, exposiciones, premios, publicaciones y clientes.",
+    image: about?.profilePicture?.asset ? about.profilePicture : fallback,
+    imageAlt: "Retrato de Cristina Galán",
+  });
+}
 
 const label = "text-[10px] tracking-[0.32em] text-muted-foreground uppercase";
 

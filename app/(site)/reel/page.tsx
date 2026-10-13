@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ViewTransition } from "react";
 import { SanityImage } from "@/components/sanity-image";
 import { VideoEmbed } from "@/components/video-embed";
-import { getProjects, getReel } from "@/sanity/lib/data";
+import { getDefaultShareImage, getProjects, getReel } from "@/sanity/lib/data";
 
-export const metadata: Metadata = {
-  title: "Reel",
-  description: "Reel de Cristina Galán: fotografía y dirección.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({
+    path: "/reel",
+    title: "Reel",
+    description: "Reel de Cristina Galán: fotografía y dirección.",
+    image: await getDefaultShareImage(),
+  });
+}
 
 const label = "text-[11px] tracking-[0.32em] uppercase";
 

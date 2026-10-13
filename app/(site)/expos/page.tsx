@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ViewTransition } from "react";
 import { SanityImage } from "@/components/sanity-image";
 import { pad } from "@/components/site/format";
-import { getExpos } from "@/sanity/lib/data";
+import { getDefaultShareImage, getExpos } from "@/sanity/lib/data";
 
-export const metadata: Metadata = {
-  title: "Exposiciones",
-  description: "Exposiciones y festivales en los que se ha mostrado la obra de Cristina Galán.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({
+    path: "/expos",
+    title: "Exposiciones",
+    description: "Exposiciones y festivales en los que se ha mostrado la obra de Cristina Galán.",
+    image: await getDefaultShareImage(),
+  });
+}
 
 const label = "text-[11px] tracking-[0.32em] uppercase";
 

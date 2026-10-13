@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ViewTransition } from "react";
 import { pad } from "@/components/site/format";
-import { getContact } from "@/sanity/lib/data";
+import { getContact, getDefaultShareImage } from "@/sanity/lib/data";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Escribe a Cristina Galán para encargos, colaboraciones o exposiciones.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({
+    path: "/contact",
+    title: "Contacto",
+    description: "Escribe a Cristina Galán para encargos, colaboraciones o exposiciones.",
+    image: await getDefaultShareImage(),
+  });
+}
 
 const label = "text-[11px] tracking-[0.32em] uppercase";
 

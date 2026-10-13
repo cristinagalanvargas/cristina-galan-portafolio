@@ -7,7 +7,7 @@ import { pad } from "@/components/site/format";
 import { GalleryStrip } from "@/components/site/gallery-strip";
 import { VideoEmbed } from "@/components/video-embed";
 import { getExpo, getExpos, getExpoSlugs } from "@/sanity/lib/data";
-import { urlFor } from "@/sanity/lib/image";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = PageProps<"/expos/[slug]">;
 
@@ -22,17 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const expo = await getExpo(slug);
   if (!expo) return {};
-  return {
-    title: expo.name,
-    description: expo.description?.slice(0, 160) ?? undefined,
-    openGraph: expo.cover?.asset
-      ? {
-          images: [
-            { url: urlFor(expo.cover).width(1200).height(630).url(), width: 1200, height: 630 },
-          ],
-        }
-      : undefined,
-  };
+  return pageMetadata({
+    path: `/expos/${slug}`,
+    title: expo.name ?? undefined,
+    description: expo.description?.slice(0, 160),
+    image: expo.cover,
+    imageAlt: expo.name ?? undefined,
+  });
 }
 
 // params awaited outside Suspense so unknown slugs answer a real 404 (see projects/[slug]).

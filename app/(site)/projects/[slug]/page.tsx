@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment, ViewTransition } from "react";
 import { SanityImage } from "@/components/sanity-image";
-import { urlFor } from "@/sanity/lib/image";
+import { pageMetadata } from "@/lib/seo";
 import { VideoEmbed } from "@/components/video-embed";
 import {
   getProject,
@@ -26,21 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) return {};
-  return {
-    title: project.name,
-    description: project.description?.slice(0, 160) ?? undefined,
-    openGraph: project.coverImage?.asset
-      ? {
-          images: [
-            {
-              url: urlFor(project.coverImage).width(1200).height(630).url(),
-              width: 1200,
-              height: 630,
-            },
-          ],
-        }
-      : undefined,
-  };
+  return pageMetadata({
+    path: `/projects/${slug}`,
+    title: project.name ?? undefined,
+    description: project.description?.slice(0, 160),
+    image: project.coverImage,
+    imageAlt: project.name ?? undefined,
+  });
 }
 
 // params are awaited before anything renders (no Suspense around them), so an

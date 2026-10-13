@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { siteDescription, siteName, siteUrl } from "@/lib/seo";
 import { formula, formulaCondensed } from "./fonts";
 import "./globals.css";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cristinagalan.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -10,13 +9,10 @@ export const metadata: Metadata = {
     default: "Cristina Galán",
     template: "%s | Cristina Galán",
   },
-  description:
-    "Cristina Galán, fotógrafa y realizadora en Madrid. Fashion film, publicidad, documental y obra personal.",
-  openGraph: {
-    type: "website",
-    locale: "es_ES",
-    siteName: "Cristina Galán",
-  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  openGraph: { type: "website", locale: "es_ES", siteName },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

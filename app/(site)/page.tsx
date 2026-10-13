@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
 import { Suspense, ViewTransition } from "react";
+import { pageMetadata, siteDescription } from "@/lib/seo";
 import { SanityImage } from "@/components/sanity-image";
-import { getHeroProjects, getProjects, getReel } from "@/sanity/lib/data";
+import { getDefaultShareImage, getHeroProjects, getProjects, getReel } from "@/sanity/lib/data";
 import { pad } from "@/components/site/format";
 import { HeroMontage } from "@/components/site/hero-montage";
 import { ProjectReel, ProjectReelWithParams } from "@/components/site/project-reel";
 import { ReelDialog } from "@/components/site/reel-dialog";
 import { Timecode } from "@/components/site/timecode";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({
+    path: "/",
+    description: siteDescription,
+    image: await getDefaultShareImage(),
+    imageAlt: "Cristina Galán — fotografía y dirección",
+  });
+}
 
 export default async function CinematicHome() {
   const [projects, reel, picked] = await Promise.all([getProjects(), getReel(), getHeroProjects()]);
