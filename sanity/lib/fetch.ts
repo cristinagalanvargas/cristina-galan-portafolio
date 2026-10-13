@@ -1,7 +1,7 @@
 import "server-only";
 
 import { cacheLife, cacheTag } from "next/cache";
-import type { QueryParams } from "next-sanity";
+import type { ClientReturn, QueryParams } from "next-sanity";
 import { client } from "./client";
 
 /**
@@ -17,9 +17,9 @@ export async function sanityFetch<const Query extends string>({
   query: Query;
   params?: QueryParams;
   tags: string[];
-}) {
+}): Promise<ClientReturn<Query, unknown>> {
   "use cache";
   cacheLife("max");
   cacheTag(...tags);
-  return client.fetch(query, params, { useCdn: false });
+  return client.fetch<ClientReturn<Query, unknown>>(query, params, { useCdn: false });
 }
